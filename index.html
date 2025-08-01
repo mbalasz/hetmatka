@@ -152,6 +152,15 @@
             text-transform: uppercase;
             background: transparent;
             outline: none;
+            caret-color: transparent;
+        }
+
+        .crossword-cell input::selection {
+            background: transparent;
+        }
+
+        .crossword-cell input::-moz-selection {
+            background: transparent;
         }
 
         .crossword-cell input:focus {
@@ -672,6 +681,12 @@
                             
                             input.addEventListener('click', (e) => {
                                 this.handleCellClick(rowIndex, colIndex);
+                                e.target.select();
+                            });
+
+                            input.addEventListener('focus', (e) => {
+                                // Select all text when focusing so next keystroke replaces it
+                                e.target.select();
                             });
 
                             input.addEventListener('input', (e) => {
@@ -680,15 +695,32 @@
                                     e.target.value = '';
                                     return;
                                 }
-                                e.target.value = value;
-                                this.updateGridData(rowIndex, colIndex, value);
+                                // Take only the last character if multiple were entered
+                                if (value.length > 1) {
+                                    e.target.value = value.slice(-1);
+                                } else {
+                                    e.target.value = value;
+                                }
+                                this.updateGridData(rowIndex, colIndex, e.target.value);
                                 this.saveProgress();
-                                this.moveToNextCell(e.target);
+                                
+                                if (e.target.value) {
+                                    const moved = this.moveToNextCell(e.target);
+                                    // If we didn't move (stayed on same cell), re-select text for next keystroke
+                                    if (!moved) {
+                                        setTimeout(() => e.target.select(), 0);
+                                    }
+                                }
                             });
 
                             input.addEventListener('keydown', (e) => {
-                                if (e.key === 'Backspace' && !e.target.value) {
+                                if (e.key === 'Backspace') {
+                                    // Clear current cell and move to previous cell
+                                    e.target.value = '';
+                                    this.updateGridData(rowIndex, colIndex, '');
+                                    this.saveProgress();
                                     this.moveToPrevCell(e.target);
+                                    e.preventDefault();
                                 } else if (e.key === 'ArrowRight') {
                                     this.moveToNextCell(e.target);
                                     e.preventDefault();
@@ -810,7 +842,7 @@
             }
 
             moveToNextCell(currentInput) {
-                if (!this.activeCell || !this.activeWordCells.length) return;
+                if (!this.activeCell || !this.activeWordCells.length) return false;
                 
                 const currentRow = parseInt(currentInput.dataset.row);
                 const currentCol = parseInt(currentInput.dataset.col);
@@ -829,9 +861,12 @@
                     if (nextInput) {
                         this.setActiveCell(nextCell.row, nextCell.col);
                         nextInput.focus();
+                        nextInput.select();
+                        return true; // Moved successfully
                     }
                 }
                 // If at end of word, stay on current cell (per requirements)
+                return false; // Did not move
             }
 
             moveToPrevCell(currentInput) {
@@ -854,6 +889,7 @@
                     if (prevInput) {
                         this.setActiveCell(prevCell.row, prevCell.col);
                         prevInput.focus();
+                        prevInput.select();
                     }
                 }
             }
