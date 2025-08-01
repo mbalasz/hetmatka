@@ -346,6 +346,9 @@
                 this.currentDirection = 'horizontal'; // 'horizontal' or 'vertical'
                 this.activeWordCells = []; // array of cells in current word
                 
+                // Debounced save for mobile performance
+                this.saveProgressTimeout = null;
+                
                 this.initializeApp();
             }
 
@@ -696,20 +699,31 @@
                                     return;
                                 }
                                 // Take only the last character if multiple were entered
-                                if (value.length > 1) {
-                                    e.target.value = value.slice(-1);
-                                } else {
-                                    e.target.value = value;
-                                }
+                                e.target.value = value;
                                 this.updateGridData(rowIndex, colIndex, e.target.value);
-                                this.saveProgress();
                                 
                                 if (e.target.value) {
                                     const moved = this.moveToNextCell(e.target);
                                     // If we didn't move (stayed on same cell), re-select text for next keystroke
                                     if (!moved) {
-                                        setTimeout(() => e.target.select(), 0);
+                                        // Use requestAnimationFrame for smoother mobile performance
+                                        requestAnimationFrame(() => e.target.select());
                                     }
+                                }
+                                
+                                // Batch save progress to reduce mobile lag
+                                this.debouncedSaveProgress();
+                            });
+
+                            // Handle backspace with beforeinput (better mobile support)
+                            input.addEventListener('beforeinput', (e) => {
+                                if (e.inputType === 'deleteContentBackward') {
+                                    // Clear current cell and move to previous cell
+                                    e.target.value = '';
+                                    this.updateGridData(rowIndex, colIndex, '');
+                                    this.debouncedSaveProgress();
+                                    this.moveToPrevCell(e.target);
+                                    e.preventDefault();
                                 }
                             });
 
@@ -718,7 +732,7 @@
                                     // Clear current cell and move to previous cell
                                     e.target.value = '';
                                     this.updateGridData(rowIndex, colIndex, '');
-                                    this.saveProgress();
+                                    this.debouncedSaveProgress();
                                     this.moveToPrevCell(e.target);
                                     e.preventDefault();
                                 } else if (e.key === 'ArrowRight') {
@@ -925,6 +939,17 @@
                     };
                     localStorage.setItem('crossword-progress', JSON.stringify(progressData));
                 }
+            }
+
+            debouncedSaveProgress() {
+                // Clear previous timeout
+                if (this.saveProgressTimeout) {
+                    clearTimeout(this.saveProgressTimeout);
+                }
+                // Set new timeout to save progress after 100ms of inactivity
+                this.saveProgressTimeout = setTimeout(() => {
+                    this.saveProgress();
+                }, 100);
             }
 
             loadSavedProgress() {

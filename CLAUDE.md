@@ -9,7 +9,10 @@ This is a single-page vanilla JavaScript application that fetches crosswords fro
 ## Key Features
 
 - **Crossword Selection**: Dropdown menu with options "Krzyżówka 1" through "Krzyżówka 117"
-- **Interactive Grid**: Touch-friendly crossword cells with keyboard navigation
+- **Interactive Grid**: Touch-friendly crossword cells with intelligent word navigation
+- **Word Highlighting**: Visual highlighting of active word with direction awareness
+- **Direction Toggle**: Click same cell to toggle between horizontal/vertical words
+- **Smart Navigation**: Directional movement within word boundaries
 - **Clue Display**: Properly formatted "Poziomo" (Across) and "Pionowo" (Down) clues
 - **Progress Saving**: Auto-saves to localStorage on every letter input
 - **Solution Submission**: Submits completed crosswords to the original site
@@ -28,7 +31,12 @@ This is a single-page vanilla JavaScript application that fetches crosswords fro
 - `loadCrossword(id)` - Fetches and displays a crossword
 - `parseCrosswordData(html)` - Extracts grid and clues from HTML
 - `parseGrid(table)` - Converts HTML table to grid data structure
+- `detectWords(grid)` - Identifies horizontal and vertical words, stores word arrays in each cell
 - `parseClues(doc)` - Extracts clues from HTML tables
+- `handleCellClick(row, col)` - Manages cell selection and direction toggling
+- `setActiveCell(row, col)` - Updates active cell and highlighting (navigation-safe)
+- `updateHighlighting()` - Applies visual highlighting to active word
+- `moveToNextCell/moveToPrevCell()` - Directional navigation within word boundaries
 - `generateSubmissionValue()` - **CRITICAL**: Creates column-by-column submission string
 - `submitSolution()` - Submits to original site with exact form format
 
@@ -82,6 +90,49 @@ This corresponds exactly to reading the screenshot grid from left to right, colu
 - First `table.defs` = "Poziomo" (Across) clues
 - Second `table.defs` = "Pionowo" (Down) clues
 
+## Advanced User Interface Features
+
+### Word Detection and Highlighting
+Each cell during parsing is enhanced with:
+```javascript
+{
+  // ... existing cell data
+  horizontalWord: [{row, col}, ...], // Array of cells in horizontal word
+  verticalWord: [{row, col}, ...],   // Array of cells in vertical word
+  horizontalWordPosition: number,    // Position within horizontal word
+  verticalWordPosition: number       // Position within vertical word
+}
+```
+
+### Interactive Behavior
+**Cell Selection**:
+- **First click**: Select cell, default to horizontal direction, highlight entire word
+- **Same cell click**: Toggle between horizontal/vertical directions (if both exist)
+- **Different cell click**: New selection with horizontal default
+
+**Visual Highlighting**:
+- **Active cell**: Dark blue background (`.cell-active`)
+- **Word cells**: Light blue background (`.cell-word-highlight`)
+- **Clean design**: No visible text selection or cursor caret
+
+**Navigation Logic**:
+- **Horizontal mode**: Tab/Enter moves right within word boundaries
+- **Vertical mode**: Tab/Enter moves down within word boundaries
+- **Word end behavior**: Stay on last cell, new input replaces current letter
+- **Backspace**: Clear current cell and move to previous cell in one action
+
+### Input Handling
+**Text Replacement**:
+- All text automatically selected on focus (invisible to user)
+- Any keystroke replaces entire cell content
+- Support for Polish characters: `A-ZĄĆĘŁŃÓŚŹŻ`
+
+**Navigation Keys**:
+- **Arrow keys**: Move in current direction within word
+- **Tab/Enter**: Move to next cell in current direction
+- **Backspace**: Clear and move backward
+- **Letter keys**: Replace content and advance (except at word end)
+
 ## Mobile Design Specifications
 
 ### Touch Targets
@@ -103,7 +154,10 @@ This corresponds exactly to reading the screenshot grid from left to right, colu
 ### Testing
 1. Test with **Krzyżówka 5** (matches provided screenshot example)
 2. Verify submission value generation against known example
-3. Test on mobile devices for touch responsiveness
+3. Test word highlighting and direction toggling
+4. Test directional navigation and word boundaries
+5. Test backspace behavior and text replacement
+6. Test on mobile devices for touch responsiveness
 
 ### Local Development
 ```bash
@@ -137,6 +191,7 @@ python3 -m http.server 8000
 ### CORS Errors
 - Ensure using proper proxy URL format
 - Test with different proxy services if needed
+- Occasional failures expected with free public proxies
 
 ### Submission Failures
 - Verify column-by-column reading algorithm
@@ -147,6 +202,16 @@ python3 -m http.server 8000
 - Check that `table#cwd.cwd` exists in fetched HTML
 - Verify cell classes: `cell` vs `black`
 - Ensure proper grid dimensions handling
+
+### Word Highlighting Issues
+- Verify word detection completed successfully in `detectWords()`
+- Check that cells have `horizontalWord` and `verticalWord` arrays populated
+- Ensure `setActiveCell()` vs `handleCellClick()` separation is maintained
+
+### Navigation Problems
+- Direction should only change on explicit clicks, not during navigation
+- Word boundaries must be respected - check `activeWordCells` array
+- Text selection should be invisible but functional for replace-on-type behavior
 
 ## Future Enhancements
 
