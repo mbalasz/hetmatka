@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hetmańska Krzyżówka</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+            align-items: center;
+        }
+
+        .crossword-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        select {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            background-color: white;
+            min-width: 150px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        button:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            text-align: center;
+            font-size: 18px;
+            color: #7f8c8d;
+            margin: 40px 0;
+        }
+
+        .error {
+            background-color: #e74c3c;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .success {
+            background-color: #27ae60;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .crossword-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .crossword-grid {
+            justify-self: center;
+            align-self: center;
+        }
+
+        .crossword-table {
+            border-collapse: collapse;
+            border: 2px solid #2c3e50;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .crossword-cell {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #bdc3c7;
+            text-align: center;
+            vertical-align: middle;
+            position: relative;
+            padding: 0;
+        }
+
+        .crossword-cell.black {
+            background-color: #2c3e50;
+        }
+
+        .crossword-cell input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: transparent;
+            outline: none;
+        }
+
+        .crossword-cell input:focus {
+            background-color: #e8f4f8;
+        }
+
+        .cell-number {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            font-size: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .clues-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .clues-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .clues-section h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .clue {
+            margin-bottom: 8px;
+            padding: 5px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .clue:last-child {
+            border-bottom: none;
+        }
+
+        .clue-number {
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .submit-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .submit-button {
+            background-color: #27ae60;
+            font-size: 18px;
+            padding: 15px 30px;
+        }
+
+        .submit-button:hover {
+            background-color: #229954;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .crossword-cell {
+                width: 35px;
+                height: 35px;
+            }
+
+            .crossword-cell input {
+                font-size: 14px;
+            }
+
+            .clues-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .controls {
+                align-items: stretch;
+            }
+
+            .crossword-selector {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            select, button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .crossword-cell {
+                width: 30px;
+                height: 30px;
+            }
+
+            .crossword-cell input {
+                font-size: 12px;
+            }
+
+            .cell-number {
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧩 Hetmańska Krzyżówka</h1>
+            <p>Lepszy interfejs do rozwiązywania krzyżówek z hetmanskie.pl</p>
+        </header>
+
+        <div class="controls">
+            <div class="crossword-selector">
+                <label for="crossword-select">Wybierz krzyżówkę:</label>
+                <select id="crossword-select">
+                    <option value="">-- Wybierz krzyżówkę --</option>
+                </select>
+                <button id="load-button" disabled>Wczytaj</button>
+            </div>
+            <div class="action-buttons" style="display: none;">
+                <button id="clear-button">Wyczyść</button>
+                <button id="submit-button" class="submit-button">Wyślij rozwiązanie</button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            Ładowanie krzyżówki...
+        </div>
+
+        <div id="error-message" class="error" style="display: none;"></div>
+        <div id="success-message" class="success" style="display: none;"></div>
+
+        <div id="crossword-container" class="crossword-container" style="display: none;">
+            <div class="crossword-grid">
+                <table id="crossword-table" class="crossword-table">
+                </table>
+            </div>
+
+            <div class="clues-container">
+                <div class="clues-section">
+                    <h3>Poziomo</h3>
+                    <div id="across-clues"></div>
+                </div>
+                <div class="clues-section">
+                    <h3>Pionowo</h3>
+                    <div id="down-clues"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class CrosswordApp {
+            constructor() {
+                this.currentCrosswordId = null;
+                this.gridData = null;
+                this.cluesData = null;
+                this.initializeApp();
+            }
+
+            initializeApp() {
+                this.populateCrosswordSelect();
+                this.bindEvents();
+                this.loadSavedProgress();
+            }
+
+            populateCrosswordSelect() {
+                const select = document.getElementById('crossword-select');
+                for (let i = 1; i <= 117; i++) {
+                    const option = document.createElement('option');
+                    option.value = i;
+                    option.textContent = `Krzyżówka ${i}`;
+                    select.appendChild(option);
+                }
+            }
+
+            bindEvents() {
+                const select = document.getElementById('crossword-select');
+                const loadButton = document.getElementById('load-button');
+                const clearButton = document.getElementById('clear-button');
+                const submitButton = document.getElementById('submit-button');
+
+                select.addEventListener('change', () => {
+                    loadButton.disabled = !select.value;
+                });
+
+                loadButton.addEventListener('click', () => {
+                    const crosswordId = select.value;
+                    if (crosswordId) {
+                        this.loadCrossword(crosswordId);
+                    }
+                });
+
+                clearButton.addEventListener('click', () => {
+                    this.clearGrid();
+                });
+
+                submitButton.addEventListener('click', () => {
+                    this.submitSolution();
+                });
+            }
+
+            async loadCrossword(crosswordId) {
+                this.showLoading(true);
+                this.hideMessages();
+                
+                // Hide old crossword content immediately
+                document.getElementById('crossword-container').style.display = 'none';
+                document.querySelector('.action-buttons').style.display = 'none';
+
+                try {
+                    const html = await this.fetchCrosswordHTML(crosswordId);
+                    const crosswordData = this.parseCrosswordData(html);
+                    
+                    this.currentCrosswordId = crosswordId;
+                    this.gridData = crosswordData.grid;
+                    this.cluesData = crosswordData.clues;
+                    
+                    this.renderCrosswordGrid(crosswordData.grid);
+                    this.renderClues(crosswordData.clues);
+                    this.loadSavedProgress();
+                    
+                    document.getElementById('crossword-container').style.display = 'block';
+                    document.querySelector('.action-buttons').style.display = 'block';
+                    
+                } catch (error) {
+                    console.error('Error loading crossword:', error);
+                    this.showError('Błąd podczas ładowania krzyżówki: ' + error.message);
+                } finally {
+                    this.showLoading(false);
+                }
+            }
+
+            async fetchCrosswordHTML(crosswordId) {
+                const proxyUrl = 'https://api.allorigins.win/get?url=';
+                const targetUrl = encodeURIComponent(`http://hetmanskie.pl/index.php?page=krzyzowki&nr=${crosswordId}`);
+                
+                const response = await fetch(proxyUrl + targetUrl);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                return data.contents;
+            }
+
+            parseCrosswordData(html) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+
+                const table = doc.querySelector('table#cwd.cwd');
+                if (!table) {
+                    throw new Error('Nie znaleziono tabeli krzyżówki');
+                }
+
+                const grid = this.parseGrid(table);
+                const clues = this.parseClues(doc);
+
+                return { grid, clues };
+            }
+
+            parseGrid(table) {
+                const rows = table.querySelectorAll('tr');
+                const grid = [];
+
+                rows.forEach((row, rowIndex) => {
+                    const cells = row.querySelectorAll('td');
+                    const gridRow = [];
+
+                    cells.forEach((cell, colIndex) => {
+                        const isBlack = cell.classList.contains('black');
+                        const number = cell.textContent.trim();
+                        const hasNumber = /^\d+/.test(number);
+
+                        gridRow.push({
+                            isBlack,
+                            number: hasNumber ? parseInt(number) : null,
+                            value: '',
+                            row: rowIndex,
+                            col: colIndex
+                        });
+                    });
+
+                    grid.push(gridRow);
+                });
+
+                return grid;
+            }
+
+            parseClues(doc) {
+                const clues = { across: [], down: [] };
+                
+                // Find the clue tables
+                const defTables = doc.querySelectorAll('table.defs');
+                
+                if (defTables.length >= 2) {
+                    // First table should be "Poziomo" (across)
+                    const acrossTable = defTables[0];
+                    const acrossRows = acrossTable.querySelectorAll('tr.defpair');
+                    
+                    acrossRows.forEach(row => {
+                        const tagCell = row.querySelector('td.tag');
+                        const defCell = row.querySelector('td.def');
+                        
+                        if (tagCell && defCell) {
+                            const numberText = tagCell.textContent.trim();
+                            const clueText = defCell.textContent.trim();
+                            const number = parseInt(numberText.replace(')', ''));
+                            
+                            if (!isNaN(number) && clueText) {
+                                clues.across.push({
+                                    number: number,
+                                    clue: clueText
+                                });
+                            }
+                        }
+                    });
+                    
+                    // Second table should be "Pionowo" (down)
+                    const downTable = defTables[1];
+                    const downRows = downTable.querySelectorAll('tr.defpair');
+                    
+                    downRows.forEach(row => {
+                        const tagCell = row.querySelector('td.tag');
+                        const defCell = row.querySelector('td.def');
+                        
+                        if (tagCell && defCell) {
+                            const numberText = tagCell.textContent.trim();
+                            const clueText = defCell.textContent.trim();
+                            const number = parseInt(numberText.replace(')', ''));
+                            
+                            if (!isNaN(number) && clueText) {
+                                clues.down.push({
+                                    number: number,
+                                    clue: clueText
+                                });
+                            }
+                        }
+                    });
+                }
+
+                return clues;
+            }
+
+            renderCrosswordGrid(grid) {
+                const table = document.getElementById('crossword-table');
+                table.innerHTML = '';
+
+                grid.forEach((row, rowIndex) => {
+                    const tr = document.createElement('tr');
+                    
+                    row.forEach((cell, colIndex) => {
+                        const td = document.createElement('td');
+                        td.className = 'crossword-cell';
+                        
+                        if (cell.isBlack) {
+                            td.classList.add('black');
+                        } else {
+                            const input = document.createElement('input');
+                            input.type = 'text';
+                            input.maxLength = 1;
+                            input.dataset.row = rowIndex;
+                            input.dataset.col = colIndex;
+                            
+                            input.addEventListener('input', (e) => {
+                                const value = e.target.value.toUpperCase();
+                                if (value && !/^[A-ZĄĆĘŁŃÓŚŹŻ]$/.test(value)) {
+                                    e.target.value = '';
+                                    return;
+                                }
+                                e.target.value = value;
+                                this.updateGridData(rowIndex, colIndex, value);
+                                this.saveProgress();
+                                this.moveToNextCell(e.target);
+                            });
+
+                            input.addEventListener('keydown', (e) => {
+                                if (e.key === 'Backspace' && !e.target.value) {
+                                    this.moveToPrevCell(e.target);
+                                } else if (e.key === 'ArrowRight') {
+                                    this.moveToNextCell(e.target);
+                                    e.preventDefault();
+                                } else if (e.key === 'ArrowLeft') {
+                                    this.moveToPrevCell(e.target);
+                                    e.preventDefault();
+                                } else if (e.key === 'ArrowDown') {
+                                    this.moveToNextRow(e.target);
+                                    e.preventDefault();
+                                } else if (e.key === 'ArrowUp') {
+                                    this.moveToPrevRow(e.target);
+                                    e.preventDefault();
+                                }
+                            });
+
+                            td.appendChild(input);
+
+                            if (cell.number) {
+                                const numberSpan = document.createElement('span');
+                                numberSpan.className = 'cell-number';
+                                numberSpan.textContent = cell.number;
+                                td.appendChild(numberSpan);
+                            }
+                        }
+                        
+                        tr.appendChild(td);
+                    });
+                    
+                    table.appendChild(tr);
+                });
+            }
+
+            renderClues(clues) {
+                const acrossDiv = document.getElementById('across-clues');
+                const downDiv = document.getElementById('down-clues');
+                
+                acrossDiv.innerHTML = '';
+                downDiv.innerHTML = '';
+
+                clues.across.forEach(clue => {
+                    const div = document.createElement('div');
+                    div.className = 'clue';
+                    div.innerHTML = `<span class="clue-number">${clue.number}.</span> ${clue.clue}`;
+                    acrossDiv.appendChild(div);
+                });
+
+                clues.down.forEach(clue => {
+                    const div = document.createElement('div');
+                    div.className = 'clue';
+                    div.innerHTML = `<span class="clue-number">${clue.number}.</span> ${clue.clue}`;
+                    downDiv.appendChild(div);
+                });
+            }
+
+            updateGridData(row, col, value) {
+                if (this.gridData && this.gridData[row] && this.gridData[row][col]) {
+                    this.gridData[row][col].value = value;
+                }
+            }
+
+            generateSubmissionValue() {
+                if (!this.gridData) return '';
+
+                const numCols = this.gridData[0].length;
+                let result = '';
+
+                for (let col = 0; col < numCols; col++) {
+                    for (let row = 0; row < this.gridData.length; row++) {
+                        const cell = this.gridData[row][col];
+                        if (cell.isBlack || !cell.value) {
+                            result += ' ';
+                        } else {
+                            result += cell.value;
+                        }
+                    }
+                }
+
+                return result;
+            }
+
+            async submitSolution() {
+                if (!this.currentCrosswordId) {
+                    this.showError('Brak wczytanej krzyżówki');
+                    return;
+                }
+
+                const submissionValue = this.generateSubmissionValue();
+                
+                try {
+                    this.showLoading(true);
+                    
+                    const formData = new FormData();
+                    formData.append('stan', submissionValue);
+                    formData.append('cwd_id', this.currentCrosswordId);
+                    formData.append('id', 'send_cwd');
+
+                    const proxyUrl = 'https://api.allorigins.win/raw?url=';
+                    const targetUrl = encodeURIComponent('http://hetmanskie.pl/index.php?page=krzyzowki');
+                    
+                    const response = await fetch(proxyUrl + targetUrl, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        const result = await response.text();
+                        this.showSuccess('Rozwiązanie zostało wysłane!');
+                        console.log('Submission result:', result);
+                    } else {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                } catch (error) {
+                    console.error('Error submitting solution:', error);
+                    this.showError('Błąd podczas wysyłania rozwiązania: ' + error.message);
+                } finally {
+                    this.showLoading(false);
+                }
+            }
+
+            moveToNextCell(currentInput) {
+                const inputs = Array.from(document.querySelectorAll('.crossword-cell input'));
+                const currentIndex = inputs.indexOf(currentInput);
+                if (currentIndex < inputs.length - 1) {
+                    inputs[currentIndex + 1].focus();
+                }
+            }
+
+            moveToPrevCell(currentInput) {
+                const inputs = Array.from(document.querySelectorAll('.crossword-cell input'));
+                const currentIndex = inputs.indexOf(currentInput);
+                if (currentIndex > 0) {
+                    inputs[currentIndex - 1].focus();
+                }
+            }
+
+            moveToNextRow(currentInput) {
+                const row = parseInt(currentInput.dataset.row);
+                const col = parseInt(currentInput.dataset.col);
+                const nextRowInput = document.querySelector(`input[data-row="${row + 1}"][data-col="${col}"]`);
+                if (nextRowInput) {
+                    nextRowInput.focus();
+                }
+            }
+
+            moveToPrevRow(currentInput) {
+                const row = parseInt(currentInput.dataset.row);
+                const col = parseInt(currentInput.dataset.col);
+                const prevRowInput = document.querySelector(`input[data-row="${row - 1}"][data-col="${col}"]`);
+                if (prevRowInput) {
+                    prevRowInput.focus();
+                }
+            }
+
+            clearGrid() {
+                const inputs = document.querySelectorAll('.crossword-cell input');
+                inputs.forEach(input => {
+                    input.value = '';
+                    const row = parseInt(input.dataset.row);
+                    const col = parseInt(input.dataset.col);
+                    this.updateGridData(row, col, '');
+                });
+                this.saveProgress();
+            }
+
+            saveProgress() {
+                if (this.currentCrosswordId && this.gridData) {
+                    const progressData = {
+                        crosswordId: this.currentCrosswordId,
+                        gridValues: this.gridData.map(row => 
+                            row.map(cell => cell.value || '')
+                        )
+                    };
+                    localStorage.setItem('crossword-progress', JSON.stringify(progressData));
+                }
+            }
+
+            loadSavedProgress() {
+                const saved = localStorage.getItem('crossword-progress');
+                if (saved && this.currentCrosswordId) {
+                    try {
+                        const progressData = JSON.parse(saved);
+                        if (progressData.crosswordId === this.currentCrosswordId) {
+                            progressData.gridValues.forEach((row, rowIndex) => {
+                                row.forEach((value, colIndex) => {
+                                    if (value) {
+                                        const input = document.querySelector(`input[data-row="${rowIndex}"][data-col="${colIndex}"]`);
+                                        if (input) {
+                                            input.value = value;
+                                            this.updateGridData(rowIndex, colIndex, value);
+                                        }
+                                    }
+                                });
+                            });
+                        }
+                    } catch (error) {
+                        console.error('Error loading saved progress:', error);
+                    }
+                }
+            }
+
+            showLoading(show) {
+                document.getElementById('loading').style.display = show ? 'block' : 'none';
+            }
+
+            showError(message) {
+                const errorDiv = document.getElementById('error-message');
+                errorDiv.textContent = message;
+                errorDiv.style.display = 'block';
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 5000);
+            }
+
+            showSuccess(message) {
+                const successDiv = document.getElementById('success-message');
+                successDiv.textContent = message;
+                successDiv.style.display = 'block';
+                setTimeout(() => {
+                    successDiv.style.display = 'none';
+                }, 5000);
+            }
+
+            hideMessages() {
+                document.getElementById('error-message').style.display = 'none';
+                document.getElementById('success-message').style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new CrosswordApp();
+        });
+    </script>
+</body>
+</html>
