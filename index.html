@@ -115,8 +115,9 @@
         }
 
         .crossword-grid {
-            justify-self: center;
-            align-self: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .crossword-table {
@@ -124,6 +125,7 @@
             border: 2px solid #2c3e50;
             background-color: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
         }
 
         .crossword-cell {
@@ -283,7 +285,6 @@
                 <button id="load-button" disabled>Wczytaj</button>
             </div>
             <div class="action-buttons" style="display: none;">
-                <button id="clear-button">Wyczyść</button>
                 <button id="submit-button" class="submit-button">Wyślij rozwiązanie</button>
             </div>
         </div>
@@ -342,7 +343,6 @@
             bindEvents() {
                 const select = document.getElementById('crossword-select');
                 const loadButton = document.getElementById('load-button');
-                const clearButton = document.getElementById('clear-button');
                 const submitButton = document.getElementById('submit-button');
 
                 select.addEventListener('change', () => {
@@ -354,10 +354,6 @@
                     if (crosswordId) {
                         this.loadCrossword(crosswordId);
                     }
-                });
-
-                clearButton.addEventListener('click', () => {
-                    this.clearGrid();
                 });
 
                 submitButton.addEventListener('click', () => {
