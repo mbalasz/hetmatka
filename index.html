@@ -158,6 +158,16 @@
             background-color: #e8f4f8;
         }
 
+        .crossword-cell.cell-active input {
+            background-color: #2874a6 !important;
+            color: white;
+        }
+
+        .crossword-cell.cell-word-highlight input {
+            background-color: #aed6f1 !important;
+            color: #1a1a1a;
+        }
+
         .cell-number {
             position: absolute;
             top: 2px;
@@ -321,6 +331,12 @@
                 this.currentCrosswordId = null;
                 this.gridData = null;
                 this.cluesData = null;
+                
+                // State for word highlighting and direction
+                this.activeCell = null; // {row, col}
+                this.currentDirection = 'horizontal'; // 'horizontal' or 'vertical'
+                this.activeWordCells = []; // array of cells in current word
+                
                 this.initializeApp();
             }
 
@@ -439,14 +455,144 @@
                             number: hasNumber ? parseInt(number) : null,
                             value: '',
                             row: rowIndex,
-                            col: colIndex
+                            col: colIndex,
+                            horizontalWord: null, // Array of {row, col} for horizontal word
+                            verticalWord: null,   // Array of {row, col} for vertical word
+                            horizontalWordPosition: null,
+                            verticalWordPosition: null
                         });
                     });
 
                     grid.push(gridRow);
                 });
 
+                // Detect words after grid is built
+                this.detectWords(grid);
+
                 return grid;
+            }
+
+            finishWord(wordCells, isHorizontal) {
+                if (wordCells.length > 1) {
+                    // Create array of cell positions for this word
+                    const wordPositions = wordCells.map(cell => ({ row: cell.row, col: cell.col }));
+                    
+                    wordCells.forEach((wordCell, index) => {
+                        if (isHorizontal) {
+                            wordCell.horizontalWord = wordPositions;
+                            wordCell.horizontalWordPosition = index;
+                        } else {
+                            wordCell.verticalWord = wordPositions;
+                            wordCell.verticalWordPosition = index;
+                        }
+                    });
+                }
+            }
+
+            detectWords(grid) {
+                // Detect horizontal words
+                for (let row = 0; row < grid.length; row++) {
+                    let wordCells = [];
+                    
+                    for (let col = 0; col < grid[row].length; col++) {
+                        const cell = grid[row][col];
+                        
+                        if (!cell.isBlack) {
+                            wordCells.push(cell);
+                        } else {
+                            this.finishWord(wordCells, true);
+                            wordCells = [];
+                        }
+                    }
+                    
+                    // End of row
+                    this.finishWord(wordCells, true);
+                }
+                
+                // Detect vertical words
+                for (let col = 0; col < grid[0].length; col++) {
+                    let wordCells = [];
+                    
+                    for (let row = 0; row < grid.length; row++) {
+                        const cell = grid[row][col];
+                        
+                        if (!cell.isBlack) {
+                            wordCells.push(cell);
+                        } else {
+                            this.finishWord(wordCells, false);
+                            wordCells = [];
+                        }
+                    }
+                    
+                    // End of column
+                    this.finishWord(wordCells, false);
+                }
+            }
+
+            setActiveCell(row, col) {
+                // Only set active cell and update highlighting
+                this.activeCell = { row, col };
+                this.updateHighlighting();
+            }
+
+            handleCellClick(row, col) {
+                const cell = this.gridData[row][col];
+                
+                // Check if clicking same cell - toggle direction
+                if (this.activeCell && this.activeCell.row === row && this.activeCell.col === col) {
+                    // Toggle direction if cell has both horizontal and vertical words
+                    if (cell.horizontalWord !== null && cell.verticalWord !== null) {
+                        this.currentDirection = this.currentDirection === 'horizontal' ? 'vertical' : 'horizontal';
+                        this.updateHighlighting();
+                    }
+                } else {
+                    // New cell - set default direction based on available words
+                    if (cell.horizontalWord !== null) {
+                        this.currentDirection = 'horizontal';
+                    } else if (cell.verticalWord !== null) {
+                        this.currentDirection = 'vertical';
+                    }
+                    
+                    // Update active cell and highlighting
+                    this.setActiveCell(row, col);
+                }
+            }
+
+            updateHighlighting() {
+                // Clear all existing highlights
+                document.querySelectorAll('.crossword-cell').forEach(cell => {
+                    cell.classList.remove('cell-active', 'cell-word-highlight');
+                });
+                
+                if (!this.activeCell) return;
+                
+                const cell = this.gridData[this.activeCell.row][this.activeCell.col];
+                
+                // Get word cells based on current direction
+                let wordCells = [];
+                if (this.currentDirection === 'horizontal' && cell.horizontalWord) {
+                    wordCells = cell.horizontalWord;
+                } else if (this.currentDirection === 'vertical' && cell.verticalWord) {
+                    wordCells = cell.verticalWord;
+                }
+                
+                // Apply highlighting
+                wordCells.forEach(cellPos => {
+                    const cellElement = document.querySelector(
+                        `input[data-row="${cellPos.row}"][data-col="${cellPos.col}"]`
+                    )?.parentElement;
+                    
+                    if (cellElement) {
+                        if (cellPos.row === this.activeCell.row && cellPos.col === this.activeCell.col) {
+                            cellElement.classList.add('cell-active');
+                        } else {
+                            cellElement.classList.add('cell-word-highlight');
+                        }
+                    }
+                });
+                
+                // Store current word cells for navigation
+                this.activeWordCells = wordCells;
             }
 
             parseClues(doc) {
@@ -524,6 +670,10 @@
                             input.dataset.row = rowIndex;
                             input.dataset.col = colIndex;
                             
+                            input.addEventListener('click', (e) => {
+                                this.handleCellClick(rowIndex, colIndex);
+                            });
+
                             input.addEventListener('input', (e) => {
                                 const value = e.target.value.toUpperCase();
                                 if (value && !/^[A-ZĄĆĘŁŃÓŚŹŻ]$/.test(value)) {
@@ -660,37 +810,62 @@
             }
 
             moveToNextCell(currentInput) {
-                const inputs = Array.from(document.querySelectorAll('.crossword-cell input'));
-                const currentIndex = inputs.indexOf(currentInput);
-                if (currentIndex < inputs.length - 1) {
-                    inputs[currentIndex + 1].focus();
+                if (!this.activeCell || !this.activeWordCells.length) return;
+                
+                const currentRow = parseInt(currentInput.dataset.row);
+                const currentCol = parseInt(currentInput.dataset.col);
+                
+                // Find current position in the active word
+                const currentWordIndex = this.activeWordCells.findIndex(
+                    cell => cell.row === currentRow && cell.col === currentCol
+                );
+                
+                if (currentWordIndex >= 0 && currentWordIndex < this.activeWordCells.length - 1) {
+                    // Move to next cell in current word
+                    const nextCell = this.activeWordCells[currentWordIndex + 1];
+                    const nextInput = document.querySelector(
+                        `input[data-row="${nextCell.row}"][data-col="${nextCell.col}"]`
+                    );
+                    if (nextInput) {
+                        this.setActiveCell(nextCell.row, nextCell.col);
+                        nextInput.focus();
+                    }
                 }
+                // If at end of word, stay on current cell (per requirements)
             }
 
             moveToPrevCell(currentInput) {
-                const inputs = Array.from(document.querySelectorAll('.crossword-cell input'));
-                const currentIndex = inputs.indexOf(currentInput);
-                if (currentIndex > 0) {
-                    inputs[currentIndex - 1].focus();
+                if (!this.activeCell || !this.activeWordCells.length) return;
+                
+                const currentRow = parseInt(currentInput.dataset.row);
+                const currentCol = parseInt(currentInput.dataset.col);
+                
+                // Find current position in the active word
+                const currentWordIndex = this.activeWordCells.findIndex(
+                    cell => cell.row === currentRow && cell.col === currentCol
+                );
+                
+                if (currentWordIndex > 0) {
+                    // Move to previous cell in current word
+                    const prevCell = this.activeWordCells[currentWordIndex - 1];
+                    const prevInput = document.querySelector(
+                        `input[data-row="${prevCell.row}"][data-col="${prevCell.col}"]`
+                    );
+                    if (prevInput) {
+                        this.setActiveCell(prevCell.row, prevCell.col);
+                        prevInput.focus();
+                    }
                 }
             }
 
             moveToNextRow(currentInput) {
-                const row = parseInt(currentInput.dataset.row);
-                const col = parseInt(currentInput.dataset.col);
-                const nextRowInput = document.querySelector(`input[data-row="${row + 1}"][data-col="${col}"]`);
-                if (nextRowInput) {
-                    nextRowInput.focus();
-                }
+                // Use the same logic as moveToNextCell for consistency
+                this.moveToNextCell(currentInput);
             }
 
             moveToPrevRow(currentInput) {
-                const row = parseInt(currentInput.dataset.row);
-                const col = parseInt(currentInput.dataset.col);
-                const prevRowInput = document.querySelector(`input[data-row="${row - 1}"][data-col="${col}"]`);
-                if (prevRowInput) {
-                    prevRowInput.focus();
-                }
+                // Use the same logic as moveToPrevCell for consistency
+                this.moveToPrevCell(currentInput);
             }
 
             clearGrid() {
