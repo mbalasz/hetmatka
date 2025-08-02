@@ -577,15 +577,41 @@
             async fetchCrosswordHTML(crosswordId) {
                 const proxyUrl = 'https://api.allorigins.win/get?url=';
                 const targetUrl = encodeURIComponent(`http://hetmanskie.pl/index.php?page=krzyzowki&nr=${crosswordId}`);
+                const maxRetries = 4;
                 
-                const response = await fetch(proxyUrl + targetUrl);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                for (let retry = 0; retry <= maxRetries; retry++) {
+                    try {
+                        console.log(`Attempt ${retry + 1}/${maxRetries + 1} to fetch crossword ${crosswordId}`);
+                        
+                        const response = await fetch(proxyUrl + targetUrl, {
+                            timeout: 5000
+                        });
+                        
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        
+                        const data = await response.json();
+                        const html = data.contents;
+                        
+                        if (!html || html.length < 100) {
+                            throw new Error('Empty or invalid response');
+                        }
+                        
+                        console.log(`Successfully fetched crossword ${crosswordId} on attempt ${retry + 1}`);
+                        return html;
+                        
+                    } catch (error) {
+                        console.warn(`Attempt ${retry + 1} failed:`, error.message);
+                        
+                        if (retry < maxRetries) {
+                            console.log(`Retrying in ${1 + retry} second(s)...`);
+                            await new Promise(resolve => setTimeout(resolve, (1 + retry) * 1000));
+                        }
+                    }
                 }
                 
-                const data = await response.json();
-                return data.contents;
+                throw new Error('Nie udało się pobrać krzyżówki po kilku próbach. Spróbuj ponownie później.');
             }
 
             parseCrosswordData(html) {
