@@ -136,43 +136,22 @@
             vertical-align: middle;
             position: relative;
             padding: 0;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
         }
 
         .crossword-cell.black {
             background-color: #2c3e50;
         }
 
-        .crossword-cell input {
-            width: 100%;
-            height: 100%;
-            border: none;
-            text-align: center;
-            font-size: 16px;
-            font-weight: bold;
-            text-transform: uppercase;
-            background: transparent;
-            outline: none;
-            caret-color: transparent;
-        }
-
-        .crossword-cell input::selection {
-            background: transparent;
-        }
-
-        .crossword-cell input::-moz-selection {
-            background: transparent;
-        }
-
-        .crossword-cell input:focus {
-            background-color: #e8f4f8;
-        }
-
-        .crossword-cell.cell-active input {
+        .crossword-cell.cell-active {
             background-color: #2874a6 !important;
             color: white;
         }
 
-        .crossword-cell.cell-word-highlight input {
+        .crossword-cell.cell-word-highlight {
             background-color: #aed6f1 !important;
             color: #1a1a1a;
         }
@@ -247,9 +226,6 @@
             .crossword-cell {
                 width: 35px;
                 height: 35px;
-            }
-
-            .crossword-cell input {
                 font-size: 14px;
             }
 
@@ -276,9 +252,6 @@
             .crossword-cell {
                 width: 30px;
                 height: 30px;
-            }
-
-            .crossword-cell input {
                 font-size: 12px;
             }
 
@@ -315,6 +288,9 @@
         <div id="error-message" class="error" style="display: none;"></div>
         <div id="success-message" class="success" style="display: none;"></div>
 
+        <!-- Single invisible input for all crossword typing -->
+        <input type="text" id="crossword-input" style="position: fixed; top: 0; left: 0; opacity: 0; width: 50px; height: 50px; pointer-events: none;" />
+
         <div id="crossword-container" class="crossword-container" style="display: none;">
             <div class="crossword-grid">
                 <table id="crossword-table" class="crossword-table">
@@ -349,12 +325,16 @@
                 // Debounced save for mobile performance
                 this.saveProgressTimeout = null;
                 
+                // Hidden input for mobile performance
+                this.hiddenInput = document.getElementById('crossword-input');
+                
                 this.initializeApp();
             }
 
             initializeApp() {
                 this.populateCrosswordSelect();
                 this.bindEvents();
+                this.setupHiddenInput();
                 this.loadSavedProgress();
             }
 
@@ -387,6 +367,82 @@
                 submitButton.addEventListener('click', () => {
                     this.submitSolution();
                 });
+            }
+
+            setupHiddenInput() {
+                this.hiddenInput.addEventListener('keydown', (e) => {
+                    if (!this.activeCell) return;
+
+                    if (/^[A-ZĄĆĘŁŃÓŚŹŻ]$/.test(e.key.toUpperCase())) {
+                        // Letter input
+                        this.setCellValue(this.activeCell.row, this.activeCell.col, e.key.toUpperCase());
+                        this.moveToNextCellInDirection();
+                        e.preventDefault();
+                    } else if (e.key === 'Backspace') {
+                        // Backspace
+                        this.setCellValue(this.activeCell.row, this.activeCell.col, '');
+                        this.moveToPrevCellInDirection();
+                        e.preventDefault();
+                    } else if (e.key === 'ArrowRight') {
+                        this.moveToNextCellInDirection();
+                        e.preventDefault();
+                    } else if (e.key === 'ArrowLeft') {
+                        this.moveToPrevCellInDirection();
+                        e.preventDefault();
+                    } else if (e.key === 'ArrowDown') {
+                        this.moveToNextCellInDirection();
+                        e.preventDefault();
+                    } else if (e.key === 'ArrowUp') {
+                        this.moveToPrevCellInDirection();
+                        e.preventDefault();
+                    }
+                });
+            }
+
+            setCellValue(row, col, value) {
+                // Update visual cell
+                const cellElement = document.querySelector(`td.crossword-cell[data-row="${row}"][data-col="${col}"]`);
+                if (cellElement && !cellElement.classList.contains('black')) {
+                    // Clear existing text content but preserve cell number
+                    const numberSpan = cellElement.querySelector('.cell-number');
+                    cellElement.textContent = value;
+                    // Re-add number span if it existed
+                    if (numberSpan) {
+                        cellElement.appendChild(numberSpan);
+                    }
+                }
+                
+                // Update grid data
+                this.updateGridData(row, col, value);
+                
+                // Save progress
+                this.debouncedSaveProgress();
+            }
+
+            moveToNextCellInDirection() {
+                if (!this.activeCell || !this.activeWordCells.length) return;
+                
+                const currentIndex = this.activeWordCells.findIndex(
+                    cell => cell.row === this.activeCell.row && cell.col === this.activeCell.col
+                );
+                
+                if (currentIndex >= 0 && currentIndex < this.activeWordCells.length - 1) {
+                    const nextCell = this.activeWordCells[currentIndex + 1];
+                    this.setActiveCell(nextCell.row, nextCell.col);
+                }
+            }
+
+            moveToPrevCellInDirection() {
+                if (!this.activeCell || !this.activeWordCells.length) return;
+                
+                const currentIndex = this.activeWordCells.findIndex(
+                    cell => cell.row === this.activeCell.row && cell.col === this.activeCell.col
+                );
+                
+                if (currentIndex > 0) {
+                    const prevCell = this.activeWordCells[currentIndex - 1];
+                    this.setActiveCell(prevCell.row, prevCell.col);
+                }
             }
 
             async loadCrossword(crosswordId) {
@@ -591,8 +647,8 @@
                 // Apply highlighting
                 wordCells.forEach(cellPos => {
                     const cellElement = document.querySelector(
-                        `input[data-row="${cellPos.row}"][data-col="${cellPos.col}"]`
-                    )?.parentElement;
+                        `td.crossword-cell[data-row="${cellPos.row}"][data-col="${cellPos.col}"]`
+                    );
                     
                     if (cellElement) {
                         if (cellPos.row === this.activeCell.row && cellPos.col === this.activeCell.col) {
@@ -672,86 +728,19 @@
                     row.forEach((cell, colIndex) => {
                         const td = document.createElement('td');
                         td.className = 'crossword-cell';
+                        td.dataset.row = rowIndex;
+                        td.dataset.col = colIndex;
                         
                         if (cell.isBlack) {
                             td.classList.add('black');
                         } else {
-                            const input = document.createElement('input');
-                            input.type = 'text';
-                            input.maxLength = 1;
-                            input.dataset.row = rowIndex;
-                            input.dataset.col = colIndex;
-                            
-                            input.addEventListener('click', (e) => {
+                            // Add click handler to focus hidden input
+                            td.addEventListener('click', () => {
                                 this.handleCellClick(rowIndex, colIndex);
-                                e.target.select();
+                                this.hiddenInput.focus();
                             });
 
-                            input.addEventListener('focus', (e) => {
-                                // Select all text when focusing so next keystroke replaces it
-                                e.target.select();
-                            });
-
-                            input.addEventListener('input', (e) => {
-                                const value = e.target.value.toUpperCase();
-                                if (value && !/^[A-ZĄĆĘŁŃÓŚŹŻ]$/.test(value)) {
-                                    e.target.value = '';
-                                    return;
-                                }
-                                // Take only the last character if multiple were entered
-                                e.target.value = value;
-                                this.updateGridData(rowIndex, colIndex, e.target.value);
-                                
-                                if (e.target.value) {
-                                    const moved = this.moveToNextCell(e.target);
-                                    // If we didn't move (stayed on same cell), re-select text for next keystroke
-                                    if (!moved) {
-                                        // Use requestAnimationFrame for smoother mobile performance
-                                        requestAnimationFrame(() => e.target.select());
-                                    }
-                                }
-                                
-                                // Batch save progress to reduce mobile lag
-                                this.debouncedSaveProgress();
-                            });
-
-                            // Handle backspace with beforeinput (better mobile support)
-                            input.addEventListener('beforeinput', (e) => {
-                                if (e.inputType === 'deleteContentBackward') {
-                                    // Clear current cell and move to previous cell
-                                    e.target.value = '';
-                                    this.updateGridData(rowIndex, colIndex, '');
-                                    this.debouncedSaveProgress();
-                                    this.moveToPrevCell(e.target);
-                                    e.preventDefault();
-                                }
-                            });
-
-                            input.addEventListener('keydown', (e) => {
-                                if (e.key === 'Backspace') {
-                                    // Clear current cell and move to previous cell
-                                    e.target.value = '';
-                                    this.updateGridData(rowIndex, colIndex, '');
-                                    this.debouncedSaveProgress();
-                                    this.moveToPrevCell(e.target);
-                                    e.preventDefault();
-                                } else if (e.key === 'ArrowRight') {
-                                    this.moveToNextCell(e.target);
-                                    e.preventDefault();
-                                } else if (e.key === 'ArrowLeft') {
-                                    this.moveToPrevCell(e.target);
-                                    e.preventDefault();
-                                } else if (e.key === 'ArrowDown') {
-                                    this.moveToNextRow(e.target);
-                                    e.preventDefault();
-                                } else if (e.key === 'ArrowUp') {
-                                    this.moveToPrevRow(e.target);
-                                    e.preventDefault();
-                                }
-                            });
-
-                            td.appendChild(input);
-
+                            // Display cell number if present
                             if (cell.number) {
                                 const numberSpan = document.createElement('span');
                                 numberSpan.className = 'cell-number';
@@ -881,6 +870,51 @@
                 }
                 // If at end of word, stay on current cell (per requirements)
                 return false; // Did not move
+            }
+
+            moveToNextCellFast(currentInput) {
+                if (!this.activeCell || !this.activeWordCells.length) return false;
+                
+                const currentRow = parseInt(currentInput.dataset.row);
+                const currentCol = parseInt(currentInput.dataset.col);
+                
+                // Find current position in the active word
+                const currentWordIndex = this.activeWordCells.findIndex(
+                    cell => cell.row === currentRow && cell.col === currentCol
+                );
+                
+                if (currentWordIndex >= 0 && currentWordIndex < this.activeWordCells.length - 1) {
+                    // Move to next cell in current word
+                    const nextCell = this.activeWordCells[currentWordIndex + 1];
+                    const nextInput = document.querySelector(
+                        `input[data-row="${nextCell.row}"][data-col="${nextCell.col}"]`
+                    );
+                    if (nextInput) {
+                        // Update active cell position without expensive highlighting update
+                        this.activeCell = { row: nextCell.row, col: nextCell.col };
+                        
+                        // Update visual highlighting efficiently
+                        this.updateActiveHighlightFast(currentInput.parentElement, nextInput.parentElement);
+                        
+                        nextInput.focus();
+                        nextInput.select();
+                        return true; // Moved successfully
+                    }
+                }
+                // If at end of word, stay on current cell (per requirements)
+                return false; // Did not move
+            }
+
+            updateActiveHighlightFast(prevCellElement, nextCellElement) {
+                // Only update the two cells that changed, not the entire word
+                if (prevCellElement) {
+                    prevCellElement.classList.remove('cell-active');
+                    prevCellElement.classList.add('cell-word-highlight');
+                }
+                if (nextCellElement) {
+                    nextCellElement.classList.remove('cell-word-highlight');
+                    nextCellElement.classList.add('cell-active');
+                }
             }
 
             moveToPrevCell(currentInput) {
