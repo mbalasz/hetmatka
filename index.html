@@ -459,6 +459,7 @@
                         // Clear the input to prevent buildup
                         e.target.value = '';
                     }
+                    e.preventDefault();
                 });
 
                 // Handle composition events for complex input methods
@@ -478,6 +479,7 @@
                         // Clear the input
                         this.hiddenInput.value = '';
                     }
+                    e.preventDefault();
                 });
             }
 
@@ -1040,7 +1042,8 @@
                             row.map(cell => cell.value || '')
                         )
                     };
-                    localStorage.setItem('crossword-progress', JSON.stringify(progressData));
+                    const storageKey = `crossword-progress-${this.currentCrosswordId}`;
+                    localStorage.setItem(storageKey, JSON.stringify(progressData));
                 }
             }
 
@@ -1056,8 +1059,12 @@
             }
 
             loadSavedProgress() {
-                const saved = localStorage.getItem('crossword-progress');
-                if (saved && this.currentCrosswordId) {
+                if (!this.currentCrosswordId) return;
+                
+                const storageKey = `crossword-progress-${this.currentCrosswordId}`;
+                const saved = localStorage.getItem(storageKey);
+                
+                if (saved) {
                     try {
                         const progressData = JSON.parse(saved);
                         if (progressData.crosswordId === this.currentCrosswordId) {
@@ -1071,6 +1078,8 @@
                         }
                     } catch (error) {
                         console.error('Error loading saved progress:', error);
+                        // Clear corrupted data
+                        localStorage.removeItem(storageKey);
                     }
                 }
             }

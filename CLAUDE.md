@@ -90,10 +90,15 @@ This corresponds exactly to reading the screenshot grid from left to right, colu
 - **Backspace**: Clear current cell and move to previous cell in one action
 
 ### Input Handling
-**Single Input System**:
+**Multi-Event Input System**:
 - Hidden input at fixed position captures all keystrokes
+- **Three-layer input handling** for maximum mobile compatibility:
+  - `keydown` events for desktop and standard mobile input
+  - `input` events for mobile Polish character long-press (ą, ć, ę, etc.)
+  - `compositionend` events for complex input methods and IME
 - Validates Polish characters: `A-ZĄĆĘŁŃÓŚŹŻ`
 - Direct cell content updates via `setCellValue()`
+- Auto-clears input buffer to prevent character buildup
 - No focus switching between elements
 
 ## Development Workflow
@@ -103,9 +108,11 @@ This corresponds exactly to reading the screenshot grid from left to right, colu
 2. Verify submission value generation against known example
 3. Test word highlighting and direction toggling
 4. Test directional navigation and word boundaries
-5. Test single input system performance on mobile devices
-6. Test backspace behavior and text replacement
-7. Verify hidden input keyboard activation on mobile
+5. Test multi-event input system performance on mobile devices
+6. **Test Polish characters on mobile**: Long-press 'a' for 'ą', 'c' for 'ć', etc.
+7. Test backspace behavior and text replacement
+8. Verify hidden input keyboard activation on mobile
+9. Test input buffer clearing prevents character buildup
 
 ### Local Development
 ```bash
@@ -131,6 +138,14 @@ python3 -m http.server 8000
 - Ensure using proper proxy URL format
 - Test with different proxy services if needed
 - Occasional failures expected with free public proxies
+
+### Mobile Polish Character Input
+- **Issue**: Polish characters (ą, ć, ę, ł, ń, ó, ś, ź, ż) not working on mobile keyboards
+- **Solution**: Multi-layered event handling system implemented:
+  - Uses `keydown`, `input`, and `compositionend` events
+  - Handles long-press character selection on mobile keyboards
+  - Auto-clears input buffer to prevent character buildup
+- **Testing**: Long-press base letters (a→ą, c→ć, e→ę, etc.) on mobile
 
 ## Future Enhancements
 
