@@ -103,7 +103,6 @@
             box-sizing: border-box;
             animation: rotation 1s linear infinite;
             margin-left: 10px;
-            /* vertical-align: middle; */
         }
 
         @keyframes rotation {
@@ -258,10 +257,6 @@
             color: #3498db;
         }
 
-        .submit-section {
-            text-align: center;
-            margin-top: 30px;
-        }
 
         .submit-button {
             background-color: #27ae60;
@@ -1075,16 +1070,6 @@
                 this.showSuccess('Otwarto hetmanskie.pl w nowej karcie. Zaloguj się i wyślij rozwiązanie.');
             }
 
-            clearGrid() {
-                const inputs = document.querySelectorAll('.crossword-cell input');
-                inputs.forEach(input => {
-                    input.value = '';
-                    const row = parseInt(input.dataset.row);
-                    const col = parseInt(input.dataset.col);
-                    this.updateGridData(row, col, '');
-                });
-                this.saveProgress();
-            }
 
             saveProgress() {
                 if (this.currentCrosswordId && this.gridData) {
