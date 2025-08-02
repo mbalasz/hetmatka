@@ -1021,11 +1021,7 @@
                             progressData.gridValues.forEach((row, rowIndex) => {
                                 row.forEach((value, colIndex) => {
                                     if (value) {
-                                        const input = document.querySelector(`input[data-row="${rowIndex}"][data-col="${colIndex}"]`);
-                                        if (input) {
-                                            input.value = value;
-                                            this.updateGridData(rowIndex, colIndex, value);
-                                        }
+                                        this.setCellValue(rowIndex, colIndex, value);
                                     }
                                 });
                             });
