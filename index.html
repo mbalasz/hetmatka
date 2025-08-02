@@ -88,6 +88,31 @@
             font-size: 18px;
             color: #7f8c8d;
             margin: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .loader {
+            width: 29px;
+            height: 29px;
+            border-radius: 50%;
+            display: inline-block;
+            border-top: 2px solid #000;
+            border-right: 2px solid transparent;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+            /* vertical-align: middle; */
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .error {
@@ -317,7 +342,8 @@
         </div>
 
         <div id="loading" class="loading" style="display: none;">
-            Ładowanie krzyżówki...
+            <span>Ładowanie krzyżówki...</span>
+            <span class="loader"></span>
         </div>
 
         <div id="error-message" class="error" style="display: none;"></div>
