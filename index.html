@@ -747,8 +747,9 @@
                     
                     if (clue) {
                         const directionText = isHorizontal ? 'Poziomo' : 'Pionowo';
+                        const wordLength = isHorizontal ? cell.horizontalWord.length : cell.verticalWord.length;
                         currentClueNumber.textContent = `${clue.number}. ${directionText}`;
-                        currentClueText.textContent = clue.clue;
+                        currentClueText.textContent = `${clue.clue} (${wordLength})`;
                         currentClueContent.style.display = 'flex';
                         return;
                     }
