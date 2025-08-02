@@ -571,6 +571,9 @@
                 // Hide old crossword content immediately
                 document.getElementById('crossword-container').style.display = 'none';
                 document.querySelector('.action-buttons').style.display = 'none';
+                
+                // Clear current clue display
+                document.querySelector('.current-clue-content').style.display = 'none';
 
                 try {
                     const html = await this.fetchCrosswordHTML(crosswordId);
