@@ -165,11 +165,11 @@
             vertical-align: middle;
             position: relative;
             padding: 0;
-            font-size: 16px;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
             min-width: 25px;
+            color: #000000;
         }
 
         .crossword-cell.black {
@@ -178,19 +178,18 @@
 
         .crossword-cell.cell-active {
             background-color: #2874a6 !important;
-            color: white;
+            color: #ffffff !important;
         }
 
         .crossword-cell.cell-word-highlight {
             background-color: #aed6f1 !important;
-            color: #1a1a1a;
+            color: #000000 !important;
         }
 
         .cell-number {
             position: absolute;
             top: 2px;
             left: 2px;
-            font-size: 10px;
             font-weight: bold;
             color: #2c3e50;
             line-height: 1;
@@ -256,7 +255,6 @@
 
             .crossword-cell {
                 min-width: 20px;
-                font-size: 14px;
             }
 
             .clues-container {
@@ -294,11 +292,6 @@
         @media (max-width: 480px) {
             .crossword-cell {
                 min-width: 15px;
-                font-size: 12px;
-            }
-
-            .cell-number {
-                font-size: 8px;
             }
         }
     </style>
@@ -877,9 +870,21 @@
                     const firstCell = document.querySelector('.crossword-cell');
                     if (firstCell) {
                         const cellWidth = firstCell.offsetWidth;
+                        // Calculate font size as a percentage of cell width
+                        // Use ~60% of cell width for optimal readability
+                        const fontSize = Math.max(cellWidth * 0.6, 10);
+                        
                         const allCells = document.querySelectorAll('.crossword-cell');
                         allCells.forEach(cell => {
                             cell.style.height = cellWidth + 'px';
+                            cell.style.fontSize = fontSize + 'px';
+                        });
+                        
+                        // Also update cell numbers to be proportional
+                        const cellNumbers = document.querySelectorAll('.cell-number');
+                        const numberFontSize = Math.max(cellWidth * 0.25, 6);
+                        cellNumbers.forEach(number => {
+                            number.style.fontSize = numberFontSize + 'px';
                         });
                     }
                 }, 10);
