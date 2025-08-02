@@ -384,6 +384,7 @@
                 this.populateCrosswordSelect();
                 this.bindEvents();
                 this.setupHiddenInput();
+                this.setupResizeHandler();
                 this.loadSavedProgress();
             }
 
@@ -445,6 +446,20 @@
                         this.moveToPrevCellInDirection();
                         e.preventDefault();
                     }
+                });
+            }
+
+            setupResizeHandler() {
+                let resizeTimeout;
+                window.addEventListener('resize', () => {
+                    // Debounce resize events to avoid excessive calculations
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => {
+                        // Only recalculate if we have a crossword loaded
+                        if (this.gridData) {
+                            this.makeCellsSquare();
+                        }
+                    }, 50);
                 });
             }
 
