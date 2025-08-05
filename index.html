@@ -576,8 +576,7 @@
                 document.querySelector('.current-clue-content').style.display = 'none';
 
                 try {
-                    const html = await this.fetchCrosswordHTML(crosswordId);
-                    const crosswordData = this.parseCrosswordData(html);
+                    const crosswordData = await this.fetchCrosswordData(crosswordId);
                     
                     this.currentCrosswordId = crosswordId;
                     this.gridData = crosswordData.grid;
@@ -598,14 +597,35 @@
                 }
             }
 
-            async fetchCrosswordHTML(crosswordId) {
+            async fetchCrosswordData(crosswordId) {
+                try {
+                    // Try to fetch from static JSON files first
+                    const response = await fetch(`./data/crosswords/${crosswordId}.json`);
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log(`Loaded crossword ${crosswordId} from static cache`);
+                        return data;
+                    }
+                    
+                    // Fallback to live fetching if static file not found
+                    console.log(`Static file not found for crossword ${crosswordId}, falling back to live fetch`);
+                    return await this.fetchCrosswordLive(crosswordId);
+                    
+                } catch (error) {
+                    console.warn(`Failed to load static crossword ${crosswordId}:`, error.message);
+                    return await this.fetchCrosswordLive(crosswordId);
+                }
+            }
+
+            async fetchCrosswordLive(crosswordId) {
                 const proxyUrl = 'https://api.allorigins.win/get?url=';
                 const targetUrl = encodeURIComponent(`http://hetmanskie.pl/index.php?page=krzyzowki&nr=${crosswordId}`);
                 const maxRetries = 4;
                 
                 for (let retry = 0; retry <= maxRetries; retry++) {
                     try {
-                        console.log(`Attempt ${retry + 1}/${maxRetries + 1} to fetch crossword ${crosswordId}`);
+                        console.log(`Live fetch attempt ${retry + 1}/${maxRetries + 1} for crossword ${crosswordId}`);
                         
                         const response = await fetch(proxyUrl + targetUrl, {
                             timeout: 5000
@@ -622,11 +642,11 @@
                             throw new Error('Empty or invalid response');
                         }
                         
-                        console.log(`Successfully fetched crossword ${crosswordId} on attempt ${retry + 1}`);
-                        return html;
+                        console.log(`Successfully fetched crossword ${crosswordId} live on attempt ${retry + 1}`);
+                        return this.parseCrosswordData(html);
                         
                     } catch (error) {
-                        console.warn(`Attempt ${retry + 1} failed:`, error.message);
+                        console.warn(`Live fetch attempt ${retry + 1} failed:`, error.message);
                         
                         if (retry < maxRetries) {
                             console.log(`Retrying in ${1 + retry} second(s)...`);

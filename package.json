@@ -1,0 +1,17 @@
+{
+  "name": "hetmanska-krzyzowka",
+  "version": "1.0.0",
+  "description": "Mobile crossword interface for hetmanskie.pl",
+  "main": "index.html",
+  "scripts": {
+    "fetch": "node fetch-crosswords.js",
+    "serve": "python3 -m http.server 8000"
+  },
+  "dependencies": {
+    "jsdom": "^23.0.0"
+  },
+  "devDependencies": {},
+  "keywords": ["crossword", "mobile", "polish", "puzzle"],
+  "author": "",
+  "license": "MIT"
+}

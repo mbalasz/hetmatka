@@ -1,0 +1,4349 @@
+{
+  "id": 62,
+  "grid": [
+    [
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 0,
+        "col": 0,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": 1,
+        "value": "",
+        "row": 0,
+        "col": 1,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 1
+          },
+          {
+            "row": 1,
+            "col": 1
+          },
+          {
+            "row": 2,
+            "col": 1
+          },
+          {
+            "row": 3,
+            "col": 1
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 0
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 0,
+        "col": 2,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 0,
+        "col": 3,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": 2,
+        "value": "",
+        "row": 0,
+        "col": 4,
+        "horizontalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 0,
+            "col": 5
+          },
+          {
+            "row": 0,
+            "col": 6
+          },
+          {
+            "row": 0,
+            "col": 7
+          },
+          {
+            "row": 0,
+            "col": 8
+          },
+          {
+            "row": 0,
+            "col": 9
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 4,
+            "col": 4
+          },
+          {
+            "row": 5,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 7,
+            "col": 4
+          }
+        ],
+        "horizontalWordPosition": 0,
+        "verticalWordPosition": 0
+      },
+      {
+        "isBlack": false,
+        "number": 3,
+        "value": "",
+        "row": 0,
+        "col": 5,
+        "horizontalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 0,
+            "col": 5
+          },
+          {
+            "row": 0,
+            "col": 6
+          },
+          {
+            "row": 0,
+            "col": 7
+          },
+          {
+            "row": 0,
+            "col": 8
+          },
+          {
+            "row": 0,
+            "col": 9
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 5
+          },
+          {
+            "row": 1,
+            "col": 5
+          },
+          {
+            "row": 2,
+            "col": 5
+          },
+          {
+            "row": 3,
+            "col": 5
+          },
+          {
+            "row": 4,
+            "col": 5
+          }
+        ],
+        "horizontalWordPosition": 1,
+        "verticalWordPosition": 0
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 0,
+        "col": 6,
+        "horizontalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 0,
+            "col": 5
+          },
+          {
+            "row": 0,
+            "col": 6
+          },
+          {
+            "row": 0,
+            "col": 7
+          },
+          {
+            "row": 0,
+            "col": 8
+          },
+          {
+            "row": 0,
+            "col": 9
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 2,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 0,
+        "col": 7,
+        "horizontalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 0,
+            "col": 5
+          },
+          {
+            "row": 0,
+            "col": 6
+          },
+          {
+            "row": 0,
+            "col": 7
+          },
+          {
+            "row": 0,
+            "col": 8
+          },
+          {
+            "row": 0,
+            "col": 9
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 3,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": 4,
+        "value": "",
+        "row": 0,
+        "col": 8,
+        "horizontalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 0,
+            "col": 5
+          },
+          {
+            "row": 0,
+            "col": 6
+          },
+          {
+            "row": 0,
+            "col": 7
+          },
+          {
+            "row": 0,
+            "col": 8
+          },
+          {
+            "row": 0,
+            "col": 9
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 8
+          },
+          {
+            "row": 1,
+            "col": 8
+          },
+          {
+            "row": 2,
+            "col": 8
+          },
+          {
+            "row": 3,
+            "col": 8
+          }
+        ],
+        "horizontalWordPosition": 4,
+        "verticalWordPosition": 0
+      },
+      {
+        "isBlack": false,
+        "number": 5,
+        "value": "",
+        "row": 0,
+        "col": 9,
+        "horizontalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 0,
+            "col": 5
+          },
+          {
+            "row": 0,
+            "col": 6
+          },
+          {
+            "row": 0,
+            "col": 7
+          },
+          {
+            "row": 0,
+            "col": 8
+          },
+          {
+            "row": 0,
+            "col": 9
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 9
+          },
+          {
+            "row": 1,
+            "col": 9
+          },
+          {
+            "row": 2,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 4,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 6,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 9
+          }
+        ],
+        "horizontalWordPosition": 5,
+        "verticalWordPosition": 0
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 0,
+        "col": 10,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": 6,
+        "value": "",
+        "row": 0,
+        "col": 11,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 11
+          },
+          {
+            "row": 1,
+            "col": 11
+          },
+          {
+            "row": 2,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 4,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 6,
+            "col": 11
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 0
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 0,
+        "col": 12,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      }
+    ],
+    [
+      {
+        "isBlack": false,
+        "number": 7,
+        "value": "",
+        "row": 1,
+        "col": 0,
+        "horizontalWord": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 1,
+            "col": 1
+          },
+          {
+            "row": 1,
+            "col": 2
+          },
+          {
+            "row": 1,
+            "col": 3
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 5
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 0
+          },
+          {
+            "row": 3,
+            "col": 0
+          },
+          {
+            "row": 4,
+            "col": 0
+          },
+          {
+            "row": 5,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 7,
+            "col": 0
+          }
+        ],
+        "horizontalWordPosition": 0,
+        "verticalWordPosition": 0
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 1,
+        "col": 1,
+        "horizontalWord": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 1,
+            "col": 1
+          },
+          {
+            "row": 1,
+            "col": 2
+          },
+          {
+            "row": 1,
+            "col": 3
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 5
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 1
+          },
+          {
+            "row": 1,
+            "col": 1
+          },
+          {
+            "row": 2,
+            "col": 1
+          },
+          {
+            "row": 3,
+            "col": 1
+          }
+        ],
+        "horizontalWordPosition": 1,
+        "verticalWordPosition": 1
+      },
+      {
+        "isBlack": false,
+        "number": 8,
+        "value": "",
+        "row": 1,
+        "col": 2,
+        "horizontalWord": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 1,
+            "col": 1
+          },
+          {
+            "row": 1,
+            "col": 2
+          },
+          {
+            "row": 1,
+            "col": 3
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 5
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 2
+          },
+          {
+            "row": 2,
+            "col": 2
+          },
+          {
+            "row": 3,
+            "col": 2
+          },
+          {
+            "row": 4,
+            "col": 2
+          },
+          {
+            "row": 5,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 7,
+            "col": 2
+          }
+        ],
+        "horizontalWordPosition": 2,
+        "verticalWordPosition": 0
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 1,
+        "col": 3,
+        "horizontalWord": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 1,
+            "col": 1
+          },
+          {
+            "row": 1,
+            "col": 2
+          },
+          {
+            "row": 1,
+            "col": 3
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 5
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 3,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 1,
+        "col": 4,
+        "horizontalWord": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 1,
+            "col": 1
+          },
+          {
+            "row": 1,
+            "col": 2
+          },
+          {
+            "row": 1,
+            "col": 3
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 5
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 4,
+            "col": 4
+          },
+          {
+            "row": 5,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 7,
+            "col": 4
+          }
+        ],
+        "horizontalWordPosition": 4,
+        "verticalWordPosition": 1
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 1,
+        "col": 5,
+        "horizontalWord": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 1,
+            "col": 1
+          },
+          {
+            "row": 1,
+            "col": 2
+          },
+          {
+            "row": 1,
+            "col": 3
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 5
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 5
+          },
+          {
+            "row": 1,
+            "col": 5
+          },
+          {
+            "row": 2,
+            "col": 5
+          },
+          {
+            "row": 3,
+            "col": 5
+          },
+          {
+            "row": 4,
+            "col": 5
+          }
+        ],
+        "horizontalWordPosition": 5,
+        "verticalWordPosition": 1
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 1,
+        "col": 6,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 1,
+        "col": 7,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": 9,
+        "value": "",
+        "row": 1,
+        "col": 8,
+        "horizontalWord": [
+          {
+            "row": 1,
+            "col": 8
+          },
+          {
+            "row": 1,
+            "col": 9
+          },
+          {
+            "row": 1,
+            "col": 10
+          },
+          {
+            "row": 1,
+            "col": 11
+          },
+          {
+            "row": 1,
+            "col": 12
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 8
+          },
+          {
+            "row": 1,
+            "col": 8
+          },
+          {
+            "row": 2,
+            "col": 8
+          },
+          {
+            "row": 3,
+            "col": 8
+          }
+        ],
+        "horizontalWordPosition": 0,
+        "verticalWordPosition": 1
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 1,
+        "col": 9,
+        "horizontalWord": [
+          {
+            "row": 1,
+            "col": 8
+          },
+          {
+            "row": 1,
+            "col": 9
+          },
+          {
+            "row": 1,
+            "col": 10
+          },
+          {
+            "row": 1,
+            "col": 11
+          },
+          {
+            "row": 1,
+            "col": 12
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 9
+          },
+          {
+            "row": 1,
+            "col": 9
+          },
+          {
+            "row": 2,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 4,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 6,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 9
+          }
+        ],
+        "horizontalWordPosition": 1,
+        "verticalWordPosition": 1
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 1,
+        "col": 10,
+        "horizontalWord": [
+          {
+            "row": 1,
+            "col": 8
+          },
+          {
+            "row": 1,
+            "col": 9
+          },
+          {
+            "row": 1,
+            "col": 10
+          },
+          {
+            "row": 1,
+            "col": 11
+          },
+          {
+            "row": 1,
+            "col": 12
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 2,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 1,
+        "col": 11,
+        "horizontalWord": [
+          {
+            "row": 1,
+            "col": 8
+          },
+          {
+            "row": 1,
+            "col": 9
+          },
+          {
+            "row": 1,
+            "col": 10
+          },
+          {
+            "row": 1,
+            "col": 11
+          },
+          {
+            "row": 1,
+            "col": 12
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 11
+          },
+          {
+            "row": 1,
+            "col": 11
+          },
+          {
+            "row": 2,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 4,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 6,
+            "col": 11
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "horizontalWordPosition": 3,
+        "verticalWordPosition": 1
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 1,
+        "col": 12,
+        "horizontalWord": [
+          {
+            "row": 1,
+            "col": 8
+          },
+          {
+            "row": 1,
+            "col": 9
+          },
+          {
+            "row": 1,
+            "col": 10
+          },
+          {
+            "row": 1,
+            "col": 11
+          },
+          {
+            "row": 1,
+            "col": 12
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 4,
+        "verticalWordPosition": null
+      }
+    ],
+    [
+      {
+        "isBlack": false,
+        "number": 10,
+        "value": "",
+        "row": 2,
+        "col": 0,
+        "horizontalWord": [
+          {
+            "row": 2,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 1
+          },
+          {
+            "row": 2,
+            "col": 2
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 0
+          },
+          {
+            "row": 3,
+            "col": 0
+          },
+          {
+            "row": 4,
+            "col": 0
+          },
+          {
+            "row": 5,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 7,
+            "col": 0
+          }
+        ],
+        "horizontalWordPosition": 0,
+        "verticalWordPosition": 1
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 2,
+        "col": 1,
+        "horizontalWord": [
+          {
+            "row": 2,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 1
+          },
+          {
+            "row": 2,
+            "col": 2
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 1
+          },
+          {
+            "row": 1,
+            "col": 1
+          },
+          {
+            "row": 2,
+            "col": 1
+          },
+          {
+            "row": 3,
+            "col": 1
+          }
+        ],
+        "horizontalWordPosition": 1,
+        "verticalWordPosition": 2
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 2,
+        "col": 2,
+        "horizontalWord": [
+          {
+            "row": 2,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 1
+          },
+          {
+            "row": 2,
+            "col": 2
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 2
+          },
+          {
+            "row": 2,
+            "col": 2
+          },
+          {
+            "row": 3,
+            "col": 2
+          },
+          {
+            "row": 4,
+            "col": 2
+          },
+          {
+            "row": 5,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 7,
+            "col": 2
+          }
+        ],
+        "horizontalWordPosition": 2,
+        "verticalWordPosition": 1
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 2,
+        "col": 3,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": 11,
+        "value": "",
+        "row": 2,
+        "col": 4,
+        "horizontalWord": [
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 5
+          },
+          {
+            "row": 2,
+            "col": 6
+          },
+          {
+            "row": 2,
+            "col": 7
+          },
+          {
+            "row": 2,
+            "col": 8
+          },
+          {
+            "row": 2,
+            "col": 9
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 4,
+            "col": 4
+          },
+          {
+            "row": 5,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 7,
+            "col": 4
+          }
+        ],
+        "horizontalWordPosition": 0,
+        "verticalWordPosition": 2
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 2,
+        "col": 5,
+        "horizontalWord": [
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 5
+          },
+          {
+            "row": 2,
+            "col": 6
+          },
+          {
+            "row": 2,
+            "col": 7
+          },
+          {
+            "row": 2,
+            "col": 8
+          },
+          {
+            "row": 2,
+            "col": 9
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 5
+          },
+          {
+            "row": 1,
+            "col": 5
+          },
+          {
+            "row": 2,
+            "col": 5
+          },
+          {
+            "row": 3,
+            "col": 5
+          },
+          {
+            "row": 4,
+            "col": 5
+          }
+        ],
+        "horizontalWordPosition": 1,
+        "verticalWordPosition": 2
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 2,
+        "col": 6,
+        "horizontalWord": [
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 5
+          },
+          {
+            "row": 2,
+            "col": 6
+          },
+          {
+            "row": 2,
+            "col": 7
+          },
+          {
+            "row": 2,
+            "col": 8
+          },
+          {
+            "row": 2,
+            "col": 9
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 2,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": 12,
+        "value": "",
+        "row": 2,
+        "col": 7,
+        "horizontalWord": [
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 5
+          },
+          {
+            "row": 2,
+            "col": 6
+          },
+          {
+            "row": 2,
+            "col": 7
+          },
+          {
+            "row": 2,
+            "col": 8
+          },
+          {
+            "row": 2,
+            "col": 9
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 2,
+            "col": 7
+          },
+          {
+            "row": 3,
+            "col": 7
+          },
+          {
+            "row": 4,
+            "col": 7
+          },
+          {
+            "row": 5,
+            "col": 7
+          }
+        ],
+        "horizontalWordPosition": 3,
+        "verticalWordPosition": 0
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 2,
+        "col": 8,
+        "horizontalWord": [
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 5
+          },
+          {
+            "row": 2,
+            "col": 6
+          },
+          {
+            "row": 2,
+            "col": 7
+          },
+          {
+            "row": 2,
+            "col": 8
+          },
+          {
+            "row": 2,
+            "col": 9
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 8
+          },
+          {
+            "row": 1,
+            "col": 8
+          },
+          {
+            "row": 2,
+            "col": 8
+          },
+          {
+            "row": 3,
+            "col": 8
+          }
+        ],
+        "horizontalWordPosition": 4,
+        "verticalWordPosition": 2
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 2,
+        "col": 9,
+        "horizontalWord": [
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 5
+          },
+          {
+            "row": 2,
+            "col": 6
+          },
+          {
+            "row": 2,
+            "col": 7
+          },
+          {
+            "row": 2,
+            "col": 8
+          },
+          {
+            "row": 2,
+            "col": 9
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 9
+          },
+          {
+            "row": 1,
+            "col": 9
+          },
+          {
+            "row": 2,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 4,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 6,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 9
+          }
+        ],
+        "horizontalWordPosition": 5,
+        "verticalWordPosition": 2
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 2,
+        "col": 10,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 2,
+        "col": 11,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 11
+          },
+          {
+            "row": 1,
+            "col": 11
+          },
+          {
+            "row": 2,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 4,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 6,
+            "col": 11
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 2
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 2,
+        "col": 12,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      }
+    ],
+    [
+      {
+        "isBlack": false,
+        "number": 13,
+        "value": "",
+        "row": 3,
+        "col": 0,
+        "horizontalWord": [
+          {
+            "row": 3,
+            "col": 0
+          },
+          {
+            "row": 3,
+            "col": 1
+          },
+          {
+            "row": 3,
+            "col": 2
+          },
+          {
+            "row": 3,
+            "col": 3
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 5
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 0
+          },
+          {
+            "row": 3,
+            "col": 0
+          },
+          {
+            "row": 4,
+            "col": 0
+          },
+          {
+            "row": 5,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 7,
+            "col": 0
+          }
+        ],
+        "horizontalWordPosition": 0,
+        "verticalWordPosition": 2
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 3,
+        "col": 1,
+        "horizontalWord": [
+          {
+            "row": 3,
+            "col": 0
+          },
+          {
+            "row": 3,
+            "col": 1
+          },
+          {
+            "row": 3,
+            "col": 2
+          },
+          {
+            "row": 3,
+            "col": 3
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 5
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 1
+          },
+          {
+            "row": 1,
+            "col": 1
+          },
+          {
+            "row": 2,
+            "col": 1
+          },
+          {
+            "row": 3,
+            "col": 1
+          }
+        ],
+        "horizontalWordPosition": 1,
+        "verticalWordPosition": 3
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 3,
+        "col": 2,
+        "horizontalWord": [
+          {
+            "row": 3,
+            "col": 0
+          },
+          {
+            "row": 3,
+            "col": 1
+          },
+          {
+            "row": 3,
+            "col": 2
+          },
+          {
+            "row": 3,
+            "col": 3
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 5
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 2
+          },
+          {
+            "row": 2,
+            "col": 2
+          },
+          {
+            "row": 3,
+            "col": 2
+          },
+          {
+            "row": 4,
+            "col": 2
+          },
+          {
+            "row": 5,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 7,
+            "col": 2
+          }
+        ],
+        "horizontalWordPosition": 2,
+        "verticalWordPosition": 2
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 3,
+        "col": 3,
+        "horizontalWord": [
+          {
+            "row": 3,
+            "col": 0
+          },
+          {
+            "row": 3,
+            "col": 1
+          },
+          {
+            "row": 3,
+            "col": 2
+          },
+          {
+            "row": 3,
+            "col": 3
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 5
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 3,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 3,
+        "col": 4,
+        "horizontalWord": [
+          {
+            "row": 3,
+            "col": 0
+          },
+          {
+            "row": 3,
+            "col": 1
+          },
+          {
+            "row": 3,
+            "col": 2
+          },
+          {
+            "row": 3,
+            "col": 3
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 5
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 4,
+            "col": 4
+          },
+          {
+            "row": 5,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 7,
+            "col": 4
+          }
+        ],
+        "horizontalWordPosition": 4,
+        "verticalWordPosition": 3
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 3,
+        "col": 5,
+        "horizontalWord": [
+          {
+            "row": 3,
+            "col": 0
+          },
+          {
+            "row": 3,
+            "col": 1
+          },
+          {
+            "row": 3,
+            "col": 2
+          },
+          {
+            "row": 3,
+            "col": 3
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 5
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 5
+          },
+          {
+            "row": 1,
+            "col": 5
+          },
+          {
+            "row": 2,
+            "col": 5
+          },
+          {
+            "row": 3,
+            "col": 5
+          },
+          {
+            "row": 4,
+            "col": 5
+          }
+        ],
+        "horizontalWordPosition": 5,
+        "verticalWordPosition": 3
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 3,
+        "col": 6,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": 14,
+        "value": "",
+        "row": 3,
+        "col": 7,
+        "horizontalWord": [
+          {
+            "row": 3,
+            "col": 7
+          },
+          {
+            "row": 3,
+            "col": 8
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 10
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 12
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 2,
+            "col": 7
+          },
+          {
+            "row": 3,
+            "col": 7
+          },
+          {
+            "row": 4,
+            "col": 7
+          },
+          {
+            "row": 5,
+            "col": 7
+          }
+        ],
+        "horizontalWordPosition": 0,
+        "verticalWordPosition": 1
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 3,
+        "col": 8,
+        "horizontalWord": [
+          {
+            "row": 3,
+            "col": 7
+          },
+          {
+            "row": 3,
+            "col": 8
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 10
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 12
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 8
+          },
+          {
+            "row": 1,
+            "col": 8
+          },
+          {
+            "row": 2,
+            "col": 8
+          },
+          {
+            "row": 3,
+            "col": 8
+          }
+        ],
+        "horizontalWordPosition": 1,
+        "verticalWordPosition": 3
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 3,
+        "col": 9,
+        "horizontalWord": [
+          {
+            "row": 3,
+            "col": 7
+          },
+          {
+            "row": 3,
+            "col": 8
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 10
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 12
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 9
+          },
+          {
+            "row": 1,
+            "col": 9
+          },
+          {
+            "row": 2,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 4,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 6,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 9
+          }
+        ],
+        "horizontalWordPosition": 2,
+        "verticalWordPosition": 3
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 3,
+        "col": 10,
+        "horizontalWord": [
+          {
+            "row": 3,
+            "col": 7
+          },
+          {
+            "row": 3,
+            "col": 8
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 10
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 12
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 3,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 3,
+        "col": 11,
+        "horizontalWord": [
+          {
+            "row": 3,
+            "col": 7
+          },
+          {
+            "row": 3,
+            "col": 8
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 10
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 12
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 11
+          },
+          {
+            "row": 1,
+            "col": 11
+          },
+          {
+            "row": 2,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 4,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 6,
+            "col": 11
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "horizontalWordPosition": 4,
+        "verticalWordPosition": 3
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 3,
+        "col": 12,
+        "horizontalWord": [
+          {
+            "row": 3,
+            "col": 7
+          },
+          {
+            "row": 3,
+            "col": 8
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 10
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 12
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 5,
+        "verticalWordPosition": null
+      }
+    ],
+    [
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 4,
+        "col": 0,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 0
+          },
+          {
+            "row": 3,
+            "col": 0
+          },
+          {
+            "row": 4,
+            "col": 0
+          },
+          {
+            "row": 5,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 7,
+            "col": 0
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 3
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 4,
+        "col": 1,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 4,
+        "col": 2,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 2
+          },
+          {
+            "row": 2,
+            "col": 2
+          },
+          {
+            "row": 3,
+            "col": 2
+          },
+          {
+            "row": 4,
+            "col": 2
+          },
+          {
+            "row": 5,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 7,
+            "col": 2
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 3
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 4,
+        "col": 3,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": 15,
+        "value": "",
+        "row": 4,
+        "col": 4,
+        "horizontalWord": [
+          {
+            "row": 4,
+            "col": 4
+          },
+          {
+            "row": 4,
+            "col": 5
+          },
+          {
+            "row": 4,
+            "col": 6
+          },
+          {
+            "row": 4,
+            "col": 7
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 4,
+            "col": 4
+          },
+          {
+            "row": 5,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 7,
+            "col": 4
+          }
+        ],
+        "horizontalWordPosition": 0,
+        "verticalWordPosition": 4
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 4,
+        "col": 5,
+        "horizontalWord": [
+          {
+            "row": 4,
+            "col": 4
+          },
+          {
+            "row": 4,
+            "col": 5
+          },
+          {
+            "row": 4,
+            "col": 6
+          },
+          {
+            "row": 4,
+            "col": 7
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 5
+          },
+          {
+            "row": 1,
+            "col": 5
+          },
+          {
+            "row": 2,
+            "col": 5
+          },
+          {
+            "row": 3,
+            "col": 5
+          },
+          {
+            "row": 4,
+            "col": 5
+          }
+        ],
+        "horizontalWordPosition": 1,
+        "verticalWordPosition": 4
+      },
+      {
+        "isBlack": false,
+        "number": 16,
+        "value": "",
+        "row": 4,
+        "col": 6,
+        "horizontalWord": [
+          {
+            "row": 4,
+            "col": 4
+          },
+          {
+            "row": 4,
+            "col": 5
+          },
+          {
+            "row": 4,
+            "col": 6
+          },
+          {
+            "row": 4,
+            "col": 7
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 4,
+            "col": 6
+          },
+          {
+            "row": 5,
+            "col": 6
+          },
+          {
+            "row": 6,
+            "col": 6
+          },
+          {
+            "row": 7,
+            "col": 6
+          }
+        ],
+        "horizontalWordPosition": 2,
+        "verticalWordPosition": 0
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 4,
+        "col": 7,
+        "horizontalWord": [
+          {
+            "row": 4,
+            "col": 4
+          },
+          {
+            "row": 4,
+            "col": 5
+          },
+          {
+            "row": 4,
+            "col": 6
+          },
+          {
+            "row": 4,
+            "col": 7
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 2,
+            "col": 7
+          },
+          {
+            "row": 3,
+            "col": 7
+          },
+          {
+            "row": 4,
+            "col": 7
+          },
+          {
+            "row": 5,
+            "col": 7
+          }
+        ],
+        "horizontalWordPosition": 3,
+        "verticalWordPosition": 2
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 4,
+        "col": 8,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 4,
+        "col": 9,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 9
+          },
+          {
+            "row": 1,
+            "col": 9
+          },
+          {
+            "row": 2,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 4,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 6,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 9
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 4
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 4,
+        "col": 10,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 4,
+        "col": 11,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 11
+          },
+          {
+            "row": 1,
+            "col": 11
+          },
+          {
+            "row": 2,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 4,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 6,
+            "col": 11
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 4
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 4,
+        "col": 12,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      }
+    ],
+    [
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 5,
+        "col": 0,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 0
+          },
+          {
+            "row": 3,
+            "col": 0
+          },
+          {
+            "row": 4,
+            "col": 0
+          },
+          {
+            "row": 5,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 7,
+            "col": 0
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 4
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 5,
+        "col": 1,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 5,
+        "col": 2,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 2
+          },
+          {
+            "row": 2,
+            "col": 2
+          },
+          {
+            "row": 3,
+            "col": 2
+          },
+          {
+            "row": 4,
+            "col": 2
+          },
+          {
+            "row": 5,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 7,
+            "col": 2
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 4
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 5,
+        "col": 3,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 5,
+        "col": 4,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 4,
+            "col": 4
+          },
+          {
+            "row": 5,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 7,
+            "col": 4
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 5
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 5,
+        "col": 5,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": 17,
+        "value": "",
+        "row": 5,
+        "col": 6,
+        "horizontalWord": [
+          {
+            "row": 5,
+            "col": 6
+          },
+          {
+            "row": 5,
+            "col": 7
+          },
+          {
+            "row": 5,
+            "col": 8
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 10
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 12
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 4,
+            "col": 6
+          },
+          {
+            "row": 5,
+            "col": 6
+          },
+          {
+            "row": 6,
+            "col": 6
+          },
+          {
+            "row": 7,
+            "col": 6
+          }
+        ],
+        "horizontalWordPosition": 0,
+        "verticalWordPosition": 1
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 5,
+        "col": 7,
+        "horizontalWord": [
+          {
+            "row": 5,
+            "col": 6
+          },
+          {
+            "row": 5,
+            "col": 7
+          },
+          {
+            "row": 5,
+            "col": 8
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 10
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 12
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 2,
+            "col": 7
+          },
+          {
+            "row": 3,
+            "col": 7
+          },
+          {
+            "row": 4,
+            "col": 7
+          },
+          {
+            "row": 5,
+            "col": 7
+          }
+        ],
+        "horizontalWordPosition": 1,
+        "verticalWordPosition": 3
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 5,
+        "col": 8,
+        "horizontalWord": [
+          {
+            "row": 5,
+            "col": 6
+          },
+          {
+            "row": 5,
+            "col": 7
+          },
+          {
+            "row": 5,
+            "col": 8
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 10
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 12
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 2,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 5,
+        "col": 9,
+        "horizontalWord": [
+          {
+            "row": 5,
+            "col": 6
+          },
+          {
+            "row": 5,
+            "col": 7
+          },
+          {
+            "row": 5,
+            "col": 8
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 10
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 12
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 9
+          },
+          {
+            "row": 1,
+            "col": 9
+          },
+          {
+            "row": 2,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 4,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 6,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 9
+          }
+        ],
+        "horizontalWordPosition": 3,
+        "verticalWordPosition": 5
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 5,
+        "col": 10,
+        "horizontalWord": [
+          {
+            "row": 5,
+            "col": 6
+          },
+          {
+            "row": 5,
+            "col": 7
+          },
+          {
+            "row": 5,
+            "col": 8
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 10
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 12
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 4,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 5,
+        "col": 11,
+        "horizontalWord": [
+          {
+            "row": 5,
+            "col": 6
+          },
+          {
+            "row": 5,
+            "col": 7
+          },
+          {
+            "row": 5,
+            "col": 8
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 10
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 12
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 11
+          },
+          {
+            "row": 1,
+            "col": 11
+          },
+          {
+            "row": 2,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 4,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 6,
+            "col": 11
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "horizontalWordPosition": 5,
+        "verticalWordPosition": 5
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 5,
+        "col": 12,
+        "horizontalWord": [
+          {
+            "row": 5,
+            "col": 6
+          },
+          {
+            "row": 5,
+            "col": 7
+          },
+          {
+            "row": 5,
+            "col": 8
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 10
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 12
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 6,
+        "verticalWordPosition": null
+      }
+    ],
+    [
+      {
+        "isBlack": false,
+        "number": 18,
+        "value": "",
+        "row": 6,
+        "col": 0,
+        "horizontalWord": [
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 1
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 3
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 5
+          },
+          {
+            "row": 6,
+            "col": 6
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 0
+          },
+          {
+            "row": 3,
+            "col": 0
+          },
+          {
+            "row": 4,
+            "col": 0
+          },
+          {
+            "row": 5,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 7,
+            "col": 0
+          }
+        ],
+        "horizontalWordPosition": 0,
+        "verticalWordPosition": 5
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 6,
+        "col": 1,
+        "horizontalWord": [
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 1
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 3
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 5
+          },
+          {
+            "row": 6,
+            "col": 6
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 1,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 6,
+        "col": 2,
+        "horizontalWord": [
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 1
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 3
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 5
+          },
+          {
+            "row": 6,
+            "col": 6
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 2
+          },
+          {
+            "row": 2,
+            "col": 2
+          },
+          {
+            "row": 3,
+            "col": 2
+          },
+          {
+            "row": 4,
+            "col": 2
+          },
+          {
+            "row": 5,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 7,
+            "col": 2
+          }
+        ],
+        "horizontalWordPosition": 2,
+        "verticalWordPosition": 5
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 6,
+        "col": 3,
+        "horizontalWord": [
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 1
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 3
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 5
+          },
+          {
+            "row": 6,
+            "col": 6
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 3,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 6,
+        "col": 4,
+        "horizontalWord": [
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 1
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 3
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 5
+          },
+          {
+            "row": 6,
+            "col": 6
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 4,
+            "col": 4
+          },
+          {
+            "row": 5,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 7,
+            "col": 4
+          }
+        ],
+        "horizontalWordPosition": 4,
+        "verticalWordPosition": 6
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 6,
+        "col": 5,
+        "horizontalWord": [
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 1
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 3
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 5
+          },
+          {
+            "row": 6,
+            "col": 6
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 5,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 6,
+        "col": 6,
+        "horizontalWord": [
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 1
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 3
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 5
+          },
+          {
+            "row": 6,
+            "col": 6
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 4,
+            "col": 6
+          },
+          {
+            "row": 5,
+            "col": 6
+          },
+          {
+            "row": 6,
+            "col": 6
+          },
+          {
+            "row": 7,
+            "col": 6
+          }
+        ],
+        "horizontalWordPosition": 6,
+        "verticalWordPosition": 2
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 6,
+        "col": 7,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 6,
+        "col": 8,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 6,
+        "col": 9,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 9
+          },
+          {
+            "row": 1,
+            "col": 9
+          },
+          {
+            "row": 2,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 4,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 6,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 9
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 6
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 6,
+        "col": 10,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 6,
+        "col": 11,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 11
+          },
+          {
+            "row": 1,
+            "col": 11
+          },
+          {
+            "row": 2,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 4,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 6,
+            "col": 11
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 6
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 6,
+        "col": 12,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      }
+    ],
+    [
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 7,
+        "col": 0,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 0
+          },
+          {
+            "row": 2,
+            "col": 0
+          },
+          {
+            "row": 3,
+            "col": 0
+          },
+          {
+            "row": 4,
+            "col": 0
+          },
+          {
+            "row": 5,
+            "col": 0
+          },
+          {
+            "row": 6,
+            "col": 0
+          },
+          {
+            "row": 7,
+            "col": 0
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 6
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 7,
+        "col": 1,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 7,
+        "col": 2,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 1,
+            "col": 2
+          },
+          {
+            "row": 2,
+            "col": 2
+          },
+          {
+            "row": 3,
+            "col": 2
+          },
+          {
+            "row": 4,
+            "col": 2
+          },
+          {
+            "row": 5,
+            "col": 2
+          },
+          {
+            "row": 6,
+            "col": 2
+          },
+          {
+            "row": 7,
+            "col": 2
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 6
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 7,
+        "col": 3,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 7,
+        "col": 4,
+        "horizontalWord": null,
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 4
+          },
+          {
+            "row": 1,
+            "col": 4
+          },
+          {
+            "row": 2,
+            "col": 4
+          },
+          {
+            "row": 3,
+            "col": 4
+          },
+          {
+            "row": 4,
+            "col": 4
+          },
+          {
+            "row": 5,
+            "col": 4
+          },
+          {
+            "row": 6,
+            "col": 4
+          },
+          {
+            "row": 7,
+            "col": 4
+          }
+        ],
+        "horizontalWordPosition": null,
+        "verticalWordPosition": 7
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 7,
+        "col": 5,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": 19,
+        "value": "",
+        "row": 7,
+        "col": 6,
+        "horizontalWord": [
+          {
+            "row": 7,
+            "col": 6
+          },
+          {
+            "row": 7,
+            "col": 7
+          },
+          {
+            "row": 7,
+            "col": 8
+          },
+          {
+            "row": 7,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 10
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 4,
+            "col": 6
+          },
+          {
+            "row": 5,
+            "col": 6
+          },
+          {
+            "row": 6,
+            "col": 6
+          },
+          {
+            "row": 7,
+            "col": 6
+          }
+        ],
+        "horizontalWordPosition": 0,
+        "verticalWordPosition": 3
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 7,
+        "col": 7,
+        "horizontalWord": [
+          {
+            "row": 7,
+            "col": 6
+          },
+          {
+            "row": 7,
+            "col": 7
+          },
+          {
+            "row": 7,
+            "col": 8
+          },
+          {
+            "row": 7,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 10
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 1,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 7,
+        "col": 8,
+        "horizontalWord": [
+          {
+            "row": 7,
+            "col": 6
+          },
+          {
+            "row": 7,
+            "col": 7
+          },
+          {
+            "row": 7,
+            "col": 8
+          },
+          {
+            "row": 7,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 10
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 2,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 7,
+        "col": 9,
+        "horizontalWord": [
+          {
+            "row": 7,
+            "col": 6
+          },
+          {
+            "row": 7,
+            "col": 7
+          },
+          {
+            "row": 7,
+            "col": 8
+          },
+          {
+            "row": 7,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 10
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 9
+          },
+          {
+            "row": 1,
+            "col": 9
+          },
+          {
+            "row": 2,
+            "col": 9
+          },
+          {
+            "row": 3,
+            "col": 9
+          },
+          {
+            "row": 4,
+            "col": 9
+          },
+          {
+            "row": 5,
+            "col": 9
+          },
+          {
+            "row": 6,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 9
+          }
+        ],
+        "horizontalWordPosition": 3,
+        "verticalWordPosition": 7
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 7,
+        "col": 10,
+        "horizontalWord": [
+          {
+            "row": 7,
+            "col": 6
+          },
+          {
+            "row": 7,
+            "col": 7
+          },
+          {
+            "row": 7,
+            "col": 8
+          },
+          {
+            "row": 7,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 10
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "verticalWord": null,
+        "horizontalWordPosition": 4,
+        "verticalWordPosition": null
+      },
+      {
+        "isBlack": false,
+        "number": null,
+        "value": "",
+        "row": 7,
+        "col": 11,
+        "horizontalWord": [
+          {
+            "row": 7,
+            "col": 6
+          },
+          {
+            "row": 7,
+            "col": 7
+          },
+          {
+            "row": 7,
+            "col": 8
+          },
+          {
+            "row": 7,
+            "col": 9
+          },
+          {
+            "row": 7,
+            "col": 10
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "verticalWord": [
+          {
+            "row": 0,
+            "col": 11
+          },
+          {
+            "row": 1,
+            "col": 11
+          },
+          {
+            "row": 2,
+            "col": 11
+          },
+          {
+            "row": 3,
+            "col": 11
+          },
+          {
+            "row": 4,
+            "col": 11
+          },
+          {
+            "row": 5,
+            "col": 11
+          },
+          {
+            "row": 6,
+            "col": 11
+          },
+          {
+            "row": 7,
+            "col": 11
+          }
+        ],
+        "horizontalWordPosition": 5,
+        "verticalWordPosition": 7
+      },
+      {
+        "isBlack": true,
+        "number": null,
+        "value": "",
+        "row": 7,
+        "col": 12,
+        "horizontalWord": null,
+        "verticalWord": null,
+        "horizontalWordPosition": null,
+        "verticalWordPosition": null
+      }
+    ]
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 2,
+        "clue": "ktoś z naszych rozgromił wojska"
+      },
+      {
+        "number": 7,
+        "clue": "jednostka torów o długości około ? metra"
+      },
+      {
+        "number": 9,
+        "clue": "do zrealizowania w sklepie w ustalonym terminie"
+      },
+      {
+        "number": 10,
+        "clue": "do uszczelniania ogonów"
+      },
+      {
+        "number": 11,
+        "clue": "coś upadło przed okopem ? obija się"
+      },
+      {
+        "number": 13,
+        "clue": "zwrot rat potwierdzam tam, gdzie się ciągle rżnie"
+      },
+      {
+        "number": 14,
+        "clue": "łaknie roztrzęsione ze łzami"
+      },
+      {
+        "number": 15,
+        "clue": "w środku zawiera farsz ze szkieletów"
+      },
+      {
+        "number": 17,
+        "clue": "po osiągnięciach jego wyrazy zna w niejednej unii"
+      },
+      {
+        "number": 18,
+        "clue": "płaskodennych łodzi koloryt szlachetny"
+      },
+      {
+        "number": 19,
+        "clue": "na kółku tej odbija się inaczej"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "clue": "w Arizonie nie ma stref na solowy popis"
+      },
+      {
+        "number": 2,
+        "clue": "lubi wygody najedzona wokół niejednego baru"
+      },
+      {
+        "number": 3,
+        "clue": "w ścianie wewnątrz krótko daje się we znaki"
+      },
+      {
+        "number": 4,
+        "clue": "bombowy ptak z głową aligatora"
+      },
+      {
+        "number": 5,
+        "clue": "tkwił dawniej w szkolnej ławce kasiarz z małą cofniętą zamiast małej Joanny"
+      },
+      {
+        "number": 6,
+        "clue": "państwo imiennika projektanta Łazienek"
+      },
+      {
+        "number": 7,
+        "clue": "kto w arce gra?"
+      },
+      {
+        "number": 8,
+        "clue": "wije się smyk ? wypił połowę trunku"
+      },
+      {
+        "number": 12,
+        "clue": "inaczej zwał to szczególne wejście"
+      },
+      {
+        "number": 16,
+        "clue": "ubaw w Anglii na początku trochę jest także egipski"
+      }
+    ]
+  },
+  "fetchedAt": "2025-08-05T11:07:06.879Z"
+}
