@@ -343,8 +343,6 @@
         <div id="error-message" class="error" style="display: none;"></div>
         <div id="success-message" class="success" style="display: none;"></div>
 
-        <!-- Single invisible input for all crossword typing -->
-        <input type="text" id="crossword-input" style="position: fixed; top: 0; left: 0; opacity: 0; width: 50px; height: 50px; pointer-events: none;" />
 
         <div id="crossword-container" class="crossword-container" style="display: none;">
             <div id="current-clue" class="current-clue">
@@ -357,6 +355,9 @@
             <div class="crossword-grid">
                 <table id="crossword-table" class="crossword-table">
                 </table>
+                
+                <!-- Hidden input positioned just below crossword for natural Chrome scrolling -->
+                <input type="text" id="crossword-input" style="opacity: 0; height: 1px; width: 1px; border: none; outline: none; margin: 0; padding: 0; position: relative; z-index: -1;" />
             </div>
 
             <div class="clues-container">
@@ -953,7 +954,7 @@
                             // Add click handler to focus hidden input
                             td.addEventListener('click', () => {
                                 this.handleCellClick(rowIndex, colIndex);
-                                this.hiddenInput.focus();
+                                this.hiddenInput.focus({preventScroll: true});
                             });
 
                             // Display cell number if present
