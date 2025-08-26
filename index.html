@@ -329,7 +329,6 @@
                 <select id="crossword-select">
                     <option value="">-- Wybierz krzyżówkę --</option>
                 </select>
-                <button id="load-button" disabled>Wczytaj</button>
             </div>
             <div class="action-buttons" style="display: none;">
                 <button id="submit-button" class="submit-button">Wyślij rozwiązanie</button>
@@ -414,14 +413,9 @@
 
             bindEvents() {
                 const select = document.getElementById('crossword-select');
-                const loadButton = document.getElementById('load-button');
                 const submitButton = document.getElementById('submit-button');
 
                 select.addEventListener('change', () => {
-                    loadButton.disabled = !select.value;
-                });
-
-                loadButton.addEventListener('click', () => {
                     const crosswordId = select.value;
                     if (crosswordId) {
                         this.loadCrossword(crosswordId);
