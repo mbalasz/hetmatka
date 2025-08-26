@@ -399,7 +399,7 @@
                 this.bindEvents();
                 this.setupHiddenInput();
                 this.setupResizeHandler();
-                this.loadSavedProgress();
+                this.autoloadLastCrossword();
             }
 
             populateCrosswordSelect() {
@@ -585,6 +585,12 @@
                     this.renderCrosswordGrid(crosswordData.grid);
                     this.renderClues(crosswordData.clues);
                     this.loadSavedProgress();
+                    
+                    // Save the last selected crossword ID
+                    this.saveLastSelectedCrossword(crosswordId);
+                    
+                    // Update the dropdown to reflect the loaded crossword
+                    document.getElementById('crossword-select').value = crosswordId;
                     
                     document.getElementById('crossword-container').style.display = 'block';
                     document.querySelector('.action-buttons').style.display = 'block';
@@ -1169,6 +1175,41 @@
             hideMessages() {
                 document.getElementById('error-message').style.display = 'none';
                 document.getElementById('success-message').style.display = 'none';
+            }
+
+            saveLastSelectedCrossword(crosswordId) {
+                localStorage.setItem('last-selected-crossword', crosswordId);
+            }
+
+            getLastSelectedCrossword() {
+                return localStorage.getItem('last-selected-crossword');
+            }
+
+            async autoloadLastCrossword() {
+                const lastCrosswordId = this.getLastSelectedCrossword();
+                
+                if (lastCrosswordId) {
+                    try {
+                        console.log(`Autoloading last selected crossword: ${lastCrosswordId}`);
+                        await this.loadCrossword(lastCrosswordId);
+                    } catch (error) {
+                        console.error('Failed to autoload last crossword:', error);
+                        // If autoload fails, try to load crossword 1 as fallback
+                        this.loadDefaultCrossword();
+                    }
+                } else {
+                    // No previous selection, load default crossword
+                    this.loadDefaultCrossword();
+                }
+            }
+
+            async loadDefaultCrossword() {
+                try {
+                    console.log('Loading default crossword (Krzyżówka 1)');
+                    await this.loadCrossword('1');
+                } catch (error) {
+                    console.error('Failed to load default crossword:', error);
+                }
             }
         }
 
