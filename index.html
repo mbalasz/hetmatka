@@ -63,6 +63,20 @@
             min-width: 150px;
         }
 
+        .crossword-status-completed {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .crossword-status-in-progress {
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        .crossword-status-empty {
+            color: #7f8c8d;
+        }
+
         button {
             padding: 10px 20px;
             font-size: 16px;
@@ -407,7 +421,10 @@
                 for (let i = 1; i <= 117; i++) {
                     const option = document.createElement('option');
                     option.value = i;
-                    option.textContent = `Krzyżówka ${i}`;
+                    const status = this.getCrosswordStatus(i);
+                    const statusIndicator = this.getStatusIndicator(status);
+                    option.textContent = `Krzyżówka ${i} ${statusIndicator}`;
+                    option.className = `crossword-status-${status}`;
                     select.appendChild(option);
                 }
             }
@@ -1101,10 +1118,16 @@
                         crosswordId: this.currentCrosswordId,
                         gridValues: this.gridData.map(row => 
                             row.map(cell => cell.value || '')
+                        ),
+                        gridStructure: this.gridData.map(row => 
+                            row.map(cell => ({ isBlack: cell.isBlack }))
                         )
                     };
                     const storageKey = `crossword-progress-${this.currentCrosswordId}`;
                     localStorage.setItem(storageKey, JSON.stringify(progressData));
+                    
+                    // Update the dropdown status indicator
+                    this.updateCrosswordStatus(this.currentCrosswordId);
                 }
             }
 
@@ -1178,6 +1201,79 @@
 
             getLastSelectedCrossword() {
                 return localStorage.getItem('last-selected-crossword');
+            }
+
+            getCrosswordStatus(crosswordId) {
+                const storageKey = `crossword-progress-${crosswordId}`;
+                const saved = localStorage.getItem(storageKey);
+                
+                if (!saved) {
+                    return 'empty'; // No progress saved
+                }
+                
+                try {
+                    const progressData = JSON.parse(saved);
+                    if (!progressData.gridValues) {
+                        return 'empty';
+                    }
+                    
+                    let filledCells = 0;
+                    let totalFillableCells = 0;
+
+                    progressData.gridValues.forEach((row, rowIndex) => {
+                        row.forEach((cellValue, colIndex) => {
+                            // Check if we have structure info to determine if cell is black
+                            let isBlack = false;
+                            if (progressData.gridStructure && 
+                                progressData.gridStructure[rowIndex] && 
+                                progressData.gridStructure[rowIndex][colIndex]) {
+                                isBlack = progressData.gridStructure[rowIndex][colIndex].isBlack;
+                            }
+                            
+                            // Only count non-black cells
+                            if (!isBlack) {
+                                totalFillableCells++;
+                                if (cellValue && cellValue.trim() !== '') {
+                                    filledCells++;
+                                }
+                            }
+                        });
+                    });
+
+                    if (filledCells === 0) {
+                        return 'empty';
+                    } else if (filledCells === totalFillableCells) {
+                        return 'completed';
+                    } else {
+                        return 'in-progress';
+                    }
+                } catch (error) {
+                    return 'empty';
+                }
+            }
+
+            getStatusIndicator(status) {
+                switch (status) {
+                    case 'completed':
+                        return '✅'; // Green checkmark
+                    case 'in-progress':
+                        return '⏳'; // Hourglass
+                    case 'empty':
+                    default:
+                        return ''; // No indicator
+                }
+            }
+
+            updateCrosswordStatus(crosswordId) {
+                // Update the dropdown option for this specific crossword
+                const select = document.getElementById('crossword-select');
+                const option = select.querySelector(`option[value="${crosswordId}"]`);
+                if (option) {
+                    const status = this.getCrosswordStatus(crosswordId);
+                    const statusIndicator = this.getStatusIndicator(status);
+                    option.textContent = `Krzyżówka ${crosswordId} ${statusIndicator}`;
+                    option.className = `crossword-status-${status}`;
+                }
             }
 
             async autoloadLastCrossword() {
